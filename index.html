@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#e63946"
+    >
+
+    <meta
+        name="description"
+        content="Dürümcü online sipariş uygulaması"
+    >
+
+    <link
+        rel="manifest"
+        href="manifest.json"
+    >
+
+    <link
+        rel="icon"
+        href="icon-192.png"
+    >
+
+    <title>Dürümcü Sipariş</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 22px;
+            margin-bottom: 18px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.08);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .product {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .product:last-child {
+            border-bottom: none;
+        }
+
+        .product-name {
+            font-weight: bold;
+        }
+
+        .price {
+            color: #777;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .quantity {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .quantity button {
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            background: #e63946;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .quantity span {
+            min-width: 25px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            margin-top: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 13px;
+            margin-bottom: 10px;
+        }
+
+        .payment-option input {
+            width: auto;
+            margin: 0;
+        }
+
+        .total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .main-button {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 12px;
+        }
+
+        .order-button {
+            background: #e63946;
+        }
+
+        .whatsapp-button {
+            background: #25D366;
+        }
+
+        .back-button {
+            background: #777;
+        }
+
+        .cancel-button {
+            background: #dc3545;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .summary-info {
+            background: #f7f7f7;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .success {
+            text-align: center;
+            font-size: 42px;
+        }
+
+        .small {
+            text-align: center;
+            color: #777;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- ========================= -->
+    <!-- SİPARİŞ SAYFASI -->
+    <!-- ========================= -->
+
+    <div id="orderPage">
+
+        <div class="card">
+
+            <h1>🌯 Dürümcü</h1>
+
+            <p class="small">
+                Online Sipariş
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>Menü</h2>
+
+
+            <!-- DÜRÜM -->
+
+            <div class="product">
+
+                <div>
+
+                    <div class="product-name">
+                        🌯 Dürüm
+                    </div>
+
+                    <div class="price">
+                        150 TL
+                    </div>
+
+                </div>
+
+
+                <div class="quantity">
+
+                    <button
+                        onclick="changeQuantity('durum', -1)"
+                    >
+                        −
+                    </button>
+
+                    <span id="durumQuantity">
+                        0
+                    </span>
+
+                    <button
+                        onclick="changeQuantity('durum', 1)"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- AYRAN -->
+
+            <div class="product">
+
+                <div>
+
+                    <div class="product-name">
+                        🥛 Ayran
+                    </div>
+
+                    <div class="price">
+                        30 TL
+                    </div>
+
+                </div>
+
+
+                <div class="quantity">
+
+                    <button
+                        onclick="changeQuantity('ayran', -1)"
+                    >
+                        −
+                    </button>
+
+                    <span id="ayranQuantity">
+                        0
+                    </span>
+
+                    <button
+                        onclick="changeQuantity('ayran', 1)"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="total">
+
+                <span>Toplam</span>
+
+                <span id="totalPrice">
+                    0 TL
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- MÜŞTERİ BİLGİLERİ -->
+
+        <div class="card">
+
+            <h2>Müşteri Bilgileri</h2>
+
+
+            <label>Adınız</label>
+
+            <input
+                type="text"
+                id="customerName"
+                placeholder="Örneğin: Mehmet"
+            >
+
+
+            <label>Adresiniz</label>
+
+            <textarea
+                id="customerAddress"
+                placeholder="Teslimat adresiniz..."
+            ></textarea>
+
+
+            <h2>Ödeme Şekli</h2>
+
+
+            <label class="payment-option">
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="Kapıda nakit"
+                >
+
+                💵 Kapıda nakit
+
+            </label>
+
+
+            <label class="payment-option">
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="Kapıda kredi kartı"
+                >
+
+                💳 Kapıda kredi kartı
+
+            </label>
+
+
+            <h2>Sipariş Notu</h2>
+
+
+            <textarea
+                id="orderNote"
+                placeholder="Örneğin: Soğan olmasın..."
+            ></textarea>
+
+
+            <button
+                class="main-button order-button"
+                onclick="createOrder()"
+            >
+                Siparişi Oluştur
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- ÖZET SAYFASI -->
+    <!-- ========================= -->
+
+    <div
+        id="summaryPage"
+        class="hidden"
+    >
+
+        <div class="card">
+
+            <div class="success">
+                🧾
+            </div>
+
+            <h1>
+                Sipariş Özeti
+            </h1>
+
+            <div id="summaryContent"></div>
+
+
+            <div class="summary-total">
+
+                <span>Toplam</span>
+
+                <span id="summaryTotal">
+                    0 TL
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>
+                Teslimat Bilgileri
+            </h2>
+
+            <div class="summary-info">
+
+                <p>
+                    <strong>Ad:</strong>
+                    <span id="summaryName"></span>
+                </p>
+
+                <p>
+                    <strong>Adres:</strong>
+                </p>
+
+                <p id="summaryAddress"></p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>
+                Ödeme ve Not
+            </h2>
+
+            <div class="summary-info">
+
+                <p>
+                    <strong>Ödeme:</strong>
+                    <span id="summaryPayment"></span>
+                </p>
+
+                <p>
+                    <strong>Not:</strong>
+                </p>
+
+                <p id="summaryNote"></p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <button
+                class="main-button whatsapp-button"
+                onclick="sendToWhatsApp()"
+            >
+                ✓ Onayla ve WhatsApp'tan Gönder
+            </button>
+
+
+            <button
+                class="main-button back-button"
+                onclick="goBack()"
+            >
+                ← Siparişi Düzenle
+            </button>
+
+
+            <button
+                class="main-button cancel-button"
+                onclick="cancelOrder()"
+            >
+                ✕ Siparişi İptal Et
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    const prices = {
+        durum: 150,
+        ayran: 30
+    };
+
+
+    let order = {
+        durum: 0,
+        ayran: 0,
+        name: "",
+        address: "",
+        payment: "",
+        note: ""
+    };
+
+
+    function changeQuantity(product, amount) {
+
+        order[product] += amount;
+
+        if (order[product] < 0) {
+            order[product] = 0;
+        }
+
+        document.getElementById(
+            product + "Quantity"
+        ).textContent = order[product];
+
+        calculateTotal();
+    }
+
+
+    function calculateTotal() {
+
+        const total =
+            order.durum * prices.durum +
+            order.ayran * prices.ayran;
+
+        document.getElementById(
+            "totalPrice"
+        ).textContent = total + " TL";
+
+        return total;
+    }
+
+
+    function createOrder() {
+
+        const name =
+            document.getElementById(
+                "customerName"
+            ).value.trim();
+
+        const address =
+            document.getElementById(
+                "customerAddress"
+            ).value.trim();
+
+        const note =
+            document.getElementById(
+                "orderNote"
+            ).value.trim();
+
+        const payment =
+            document.querySelector(
+                'input[name="payment"]:checked'
+            );
+
+
+        if (!name) {
+            alert("Lütfen adınızı girin.");
+            return;
+        }
+
+
+        if (!address) {
+            alert("Lütfen adresinizi girin.");
+            return;
+        }
+
+
+        if (
+            order.durum === 0 &&
+            order.ayran === 0
+        ) {
+            alert("Lütfen ürün seçin.");
+            return;
+        }
+
+
+        if (!payment) {
+            alert("Lütfen ödeme şeklini seçin.");
+            return;
+        }
+
+
+        order.name = name;
+        order.address = address;
+        order.payment = payment.value;
+        order.note = note;
+
+
+        const total = calculateTotal();
+
+
+        let html = "";
+
+
+        if (order.durum > 0) {
+
+            html += `
+                <div class="summary-row">
+                    <span>
+                        🌯 Dürüm × ${order.durum}
+                    </span>
+
+                    <span>
+                        ${order.durum * prices.durum} TL
+                    </span>
+                </div>
+            `;
+        }
+
+
+        if (order.ayran > 0) {
+
+            html += `
+                <div class="summary-row">
+                    <span>
+                        🥛 Ayran × ${order.ayran}
+                    </span>
+
+                    <span>
+                        ${order.ayran * prices.ayran} TL
+                    </span>
+                </div>
+            `;
+        }
+
+
+        document.getElementById(
+            "summaryContent"
+        ).innerHTML = html;
+
+
+        document.getElementById(
+            "summaryTotal"
+        ).textContent = total + " TL";
+
+
+        document.getElementById(
+            "summaryName"
+        ).textContent = order.name;
+
+
+        document.getElementById(
+            "summaryAddress"
+        ).textContent = order.address;
+
+
+        document.getElementById(
+            "summaryPayment"
+        ).textContent = order.payment;
+
+
+        document.getElementById(
+            "summaryNote"
+        ).textContent =
+            order.note || "Not belirtilmedi.";
+
+
+        document.getElementById(
+            "orderPage"
+        ).classList.add("hidden");
+
+
+        document.getElementById(
+            "summaryPage"
+        ).classList.remove("hidden");
+
+
+        window.scrollTo(0, 0);
+    }
+
+
+    function goBack() {
+
+        document.getElementById(
+            "summaryPage"
+        ).classList.add("hidden");
+
+        document.getElementById(
+            "orderPage"
+        ).classList.remove("hidden");
+    }
+
+
+    function cancelOrder() {
+
+        order = {
+            durum: 0,
+            ayran: 0,
+            name: "",
+            address: "",
+            payment: "",
+            note: ""
+        };
+
+
+        document.getElementById(
+            "durumQuantity"
+        ).textContent = "0";
+
+
+        document.getElementById(
+            "ayranQuantity"
+        ).textContent = "0";
+
+
+        document.getElementById(
+            "customerName"
+        ).value = "";
+
+
+        document.getElementById(
+            "customerAddress"
+        ).value = "";
+
+
+        document.getElementById(
+            "orderNote"
+        ).value = "";
+
+
+        document
+            .querySelectorAll(
+                'input[name="payment"]'
+            )
+            .forEach(input => {
+                input.checked = false;
+            });
+
+
+        document.getElementById(
+            "totalPrice"
+        ).textContent = "0 TL";
+
+
+        document.getElementById(
+            "summaryPage"
+        ).classList.add("hidden");
+
+
+        document.getElementById(
+            "orderPage"
+        ).classList.remove("hidden");
+
+
+        window.scrollTo(0, 0);
+    }
+
+
+    function sendToWhatsApp() {
+
+        const total = calculateTotal();
+
+
+        let message =
+            `Merhaba, ben ${order.name}.\n\n` +
+            `Sipariş vermek istiyorum:\n\n`;
+
+
+        if (order.durum > 0) {
+            message +=
+                `${order.durum} adet dürüm\n`;
+        }
+
+
+        if (order.ayran > 0) {
+            message +=
+                `${order.ayran} adet ayran\n`;
+        }
+
+
+        message +=
+            `\nToplam: ${total} TL\n` +
+            `Adresim: ${order.address}\n` +
+            `Ödeme: ${order.payment}\n`;
+
+
+        if (order.note) {
+            message +=
+                `Sipariş notu: ${order.note}\n`;
+        }
+
+
+        const phoneNumber =
+            "905451014563";
+
+
+        const url =
+            "https://wa.me/" +
+            phoneNumber +
+            "?text=" +
+            encodeURIComponent(message);
+
+
+        window.location.href = url;
+    }
+
+
+    // =========================
+    // PWA SERVICE WORKER
+    // =========================
+
+    if ("serviceWorker" in navigator) {
+
+        window.addEventListener(
+            "load",
+            () => {
+
+                navigator.serviceWorker.register(
+                    "service-worker.js"
+                );
+
+            }
+        );
+
+    }
+
+</script>
+
+
+</body>
+
+</html>

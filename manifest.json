@@ -1,0 +1,17 @@
+{
+    "name": "Dürümcü Sipariş",
+    "short_name": "Dürümcü",
+    "description": "Dürümcü online sipariş uygulaması",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#f5f5f5",
+    "theme_color": "#e63946",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ]
+}
