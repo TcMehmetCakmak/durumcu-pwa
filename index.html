@@ -1,4 +1,6 @@
+```html
 <!DOCTYPE html>
+
 <html lang="tr">
 
 <head>
@@ -31,7 +33,6 @@
     >
 
     <title>Dürümcü Sipariş</title>
-
 
     <style>
 
@@ -204,7 +205,7 @@
         }
 
         .hidden {
-            display: none;
+            display: none !important;
         }
 
         .success {
@@ -217,26 +218,241 @@
             color: #777;
         }
 
+        /* =========================================
+           SİPARİŞ BAŞLIĞI + KONUM
+        ========================================= */
+
+        .order-title-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .order-title-row h2 {
+            margin: 0;
+        }
+
+        .order-tools {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .tool-icon {
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            padding: 0;
+            border: none;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 19px;
+            cursor: pointer;
+            transition:
+                transform .15s ease,
+                opacity .15s ease;
+        }
+
+        .tool-icon:active {
+            transform: scale(.88);
+        }
+
+        .tool-icon:hover {
+            opacity: .85;
+        }
+
+        .location-icon {
+            background: #4285F4;
+            color: white;
+        }
+
+        .qr-icon {
+            background: #222;
+            color: white;
+        }
+
+        .location-status {
+            margin-top: -5px;
+            margin-bottom: 12px;
+            font-size: 13px;
+            min-height: 18px;
+        }
+
+        /* =========================================
+           SİPARİŞ DETAY QR BUTONU
+        ========================================= */
+
+        .qr-summary-button {
+            background: #222;
+        }
+
+        .qr-summary-button:active {
+            transform: scale(.98);
+        }
+
+        /* =========================================
+           KONUM SAYFASI
+        ========================================= */
+
+        #locationPage {
+            min-height: 100vh;
+            background: #f5f5f5;
+        }
+
+        .location-page-header {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 55px 18px 20px;
+            background: white;
+            border-radius: 18px;
+            margin-bottom: 18px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.08);
+        }
+
+        .location-page-header h2 {
+            margin: 0;
+            font-size: 21px;
+            text-align: center;
+        }
+
+        .close-location-page {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 38px;
+            height: 38px;
+            border: none;
+            border-radius: 50%;
+            background: #eee;
+            font-size: 27px;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .close-location-page:active {
+            transform:
+                translateY(-50%)
+                scale(.90);
+        }
+
+        .location-card {
+            background: white;
+            border-radius: 18px;
+            padding: 22px;
+            box-shadow:
+                0 5px 20px rgba(0,0,0,.08);
+            text-align: center;
+        }
+
+        .location-address-title {
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .location-page-address {
+            padding: 13px;
+            background: #f7f7f7;
+            border-radius: 10px;
+            font-size: 14px;
+            line-height: 1.5;
+            word-break: break-word;
+        }
+
+        .qr-big-container {
+            margin-top: 24px;
+        }
+
+        .qr-title {
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+        .qr-big-container p {
+            margin-top: 8px;
+        }
+
+        .qr-big-container img {
+            display: block;
+            width: 280px;
+            height: 280px;
+            max-width: 100%;
+            margin: 15px auto;
+            padding: 10px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            object-fit: contain;
+        }
+
+        .maps-button {
+            display: block;
+            width: 100%;
+            background: #34A853;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .maps-button:active {
+            transform: scale(.98);
+        }
+
+        .back-order-button {
+            width: 100%;
+            background: #555;
+            color: white;
+        }
+
+        /* =========================================
+           MOBİL
+        ========================================= */
+
+        @media (max-width: 400px) {
+
+            .container {
+                padding: 12px;
+            }
+
+            .card {
+                padding: 18px;
+            }
+
+            .qr-big-container img {
+                width: 240px;
+                height: 240px;
+            }
+
+        }
+
     </style>
 
 </head>
 
-
 <body>
-
 
 <div class="container">
 
-
-    <!-- ========================= -->
-    <!-- SİPARİŞ SAYFASI -->
-    <!-- ========================= -->
+    <!-- =========================================
+         SİPARİŞ SAYFASI
+    ========================================= -->
 
     <div id="orderPage">
 
+        <!-- BAŞLIK -->
+
         <div class="card">
 
-            <h1>🌯 Dürümcü</h1>
+            <h1>
+                🌯 Dürümcü
+            </h1>
 
             <p class="small">
                 Online Sipariş
@@ -244,11 +460,15 @@
 
         </div>
 
+        <!-- =========================================
+             SİPARİŞ
+        ========================================= -->
 
         <div class="card">
 
-            <h2>Menü</h2>
-
+            <h2>
+                Siparişiniz
+            </h2>
 
             <!-- DÜRÜM -->
 
@@ -266,10 +486,10 @@
 
                 </div>
 
-
                 <div class="quantity">
 
                     <button
+                        type="button"
                         onclick="changeQuantity('durum', -1)"
                     >
                         −
@@ -280,6 +500,7 @@
                     </span>
 
                     <button
+                        type="button"
                         onclick="changeQuantity('durum', 1)"
                     >
                         +
@@ -288,7 +509,6 @@
                 </div>
 
             </div>
-
 
             <!-- AYRAN -->
 
@@ -306,10 +526,10 @@
 
                 </div>
 
-
                 <div class="quantity">
 
                     <button
+                        type="button"
                         onclick="changeQuantity('ayran', -1)"
                     >
                         −
@@ -320,6 +540,7 @@
                     </span>
 
                     <button
+                        type="button"
                         onclick="changeQuantity('ayran', 1)"
                     >
                         +
@@ -329,10 +550,13 @@
 
             </div>
 
+            <!-- TOPLAM -->
 
             <div class="total">
 
-                <span>Toplam</span>
+                <span>
+                    Toplam
+                </span>
 
                 <span id="totalPrice">
                     0 TL
@@ -342,15 +566,21 @@
 
         </div>
 
-
-        <!-- MÜŞTERİ BİLGİLERİ -->
+        <!-- =========================================
+             MÜŞTERİ BİLGİLERİ
+        ========================================= -->
 
         <div class="card">
 
-            <h2>Müşteri Bilgileri</h2>
+            <h2>
+                Müşteri Bilgileri
+            </h2>
 
+            <!-- AD -->
 
-            <label>Adınız</label>
+            <label>
+                Adınız
+            </label>
 
             <input
                 type="text"
@@ -358,17 +588,49 @@
                 placeholder="Örneğin: Mehmet"
             >
 
+            <!-- ADRES -->
 
-            <label>Adresiniz</label>
+            <div class="order-title-row">
+
+                <label>
+                    Adresiniz
+                </label>
+
+                <div class="order-tools">
+
+                    <!-- SADECE KONUM BUTONU -->
+
+                    <button
+                        type="button"
+                        class="tool-icon location-icon"
+                        onclick="getLocation()"
+                        title="Konumumu Bul"
+                        aria-label="Konumumu Bul"
+                    >
+                        📍
+                    </button>
+
+                </div>
+
+            </div>
 
             <textarea
                 id="customerAddress"
                 placeholder="Teslimat adresiniz..."
             ></textarea>
 
+            <!-- KONUM DURUMU -->
 
-            <h2>Ödeme Şekli</h2>
+            <div
+                id="locationStatus"
+                class="small location-status"
+            ></div>
 
+            <!-- ÖDEME -->
+
+            <h2>
+                Ödeme Şekli
+            </h2>
 
             <label class="payment-option">
 
@@ -382,7 +644,6 @@
 
             </label>
 
-
             <label class="payment-option">
 
                 <input
@@ -395,17 +656,21 @@
 
             </label>
 
+            <!-- NOT -->
 
-            <h2>Sipariş Notu</h2>
-
+            <h2>
+                Sipariş Notu
+            </h2>
 
             <textarea
                 id="orderNote"
                 placeholder="Örneğin: Soğan olmasın..."
             ></textarea>
 
+            <!-- SİPARİŞİ OLUŞTUR -->
 
             <button
+                type="button"
                 class="main-button order-button"
                 onclick="createOrder()"
             >
@@ -416,10 +681,9 @@
 
     </div>
 
-
-    <!-- ========================= -->
-    <!-- ÖZET SAYFASI -->
-    <!-- ========================= -->
+    <!-- =========================================
+         ÖZET / SİPARİŞ DETAY SAYFASI
+    ========================================= -->
 
     <div
         id="summaryPage"
@@ -438,10 +702,11 @@
 
             <div id="summaryContent"></div>
 
-
             <div class="summary-total">
 
-                <span>Toplam</span>
+                <span>
+                    Toplam
+                </span>
 
                 <span id="summaryTotal">
                     0 TL
@@ -451,6 +716,9 @@
 
         </div>
 
+        <!-- =========================================
+             TESLİMAT BİLGİLERİ
+        ========================================= -->
 
         <div class="card">
 
@@ -461,8 +729,11 @@
             <div class="summary-info">
 
                 <p>
+
                     <strong>Ad:</strong>
+
                     <span id="summaryName"></span>
+
                 </p>
 
                 <p>
@@ -471,10 +742,23 @@
 
                 <p id="summaryAddress"></p>
 
+                <!-- KONUM QR BUTONU BURADA -->
+
+                <button
+                    type="button"
+                    class="main-button qr-summary-button"
+                    onclick="openLocationPage()"
+                >
+                    📱 Konum QR Kodunu Göster
+                </button>
+
             </div>
 
         </div>
 
+        <!-- =========================================
+             ÖDEME VE NOT
+        ========================================= -->
 
         <div class="card">
 
@@ -485,8 +769,11 @@
             <div class="summary-info">
 
                 <p>
+
                     <strong>Ödeme:</strong>
+
                     <span id="summaryPayment"></span>
+
                 </p>
 
                 <p>
@@ -499,26 +786,30 @@
 
         </div>
 
+        <!-- =========================================
+             SİPARİŞ İŞLEMLERİ
+        ========================================= -->
 
         <div class="card">
 
             <button
+                type="button"
                 class="main-button whatsapp-button"
                 onclick="sendToWhatsApp()"
             >
                 ✓ Onayla ve WhatsApp'tan Gönder
             </button>
 
-
             <button
+                type="button"
                 class="main-button back-button"
                 onclick="goBack()"
             >
                 ← Siparişi Düzenle
             </button>
 
-
             <button
+                type="button"
                 class="main-button cancel-button"
                 onclick="cancelOrder()"
             >
@@ -529,123 +820,1111 @@
 
     </div>
 
-</div>
+    <!-- =========================================
+         KONUM / QR SAYFASI
+    ========================================= -->
 
+    <div
+        id="locationPage"
+        class="hidden"
+    >
+
+        <!-- SAYFA BAŞLIĞI -->
+
+        <div class="location-page-header">
+
+            <h2>
+                📍 Konum Bilgisi
+            </h2>
+
+            <!-- X -->
+
+            <button
+                type="button"
+                class="close-location-page"
+                onclick="closeLocationPage()"
+                aria-label="Kapat"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <!-- KONUM KARTI -->
+
+        <div class="location-card">
+
+            <div class="location-address-title">
+                📍 Teslimat Konumu
+            </div>
+
+            <div
+                id="locationPageAddress"
+                class="location-page-address"
+            >
+                Konum henüz bulunmadı.
+            </div>
+
+            <!-- QR -->
+
+            <div class="qr-big-container">
+
+                <div class="qr-title">
+                    📱 QR Kod
+                </div>
+
+                <p class="small">
+                    QR kodu telefon kamerasıyla okutun.
+                </p>
+
+                <img
+                    id="locationQRPage"
+                    src=""
+                    alt="Google Maps Konum QR Kodu"
+                >
+
+            </div>
+
+            <!-- GOOGLE MAPS -->
+
+            <a
+                id="locationPageMapsButton"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="main-button maps-button"
+            >
+                🗺️ Google Maps'te Aç
+            </a>
+
+            <!-- GERİ DÖN -->
+
+            <button
+                type="button"
+                class="main-button back-order-button"
+                onclick="closeLocationPage()"
+            >
+                ← Siparişe Geri Dön
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
 
 <script>
 
+    /* =========================================
+       AYARLAR
+    ========================================= */
+
     const prices = {
+
         durum: 150,
+
         ayran: 30
+
     };
 
+    const STORAGE_KEY =
+        "durumcu_order";
+
+    /* =========================================
+       SİPARİŞ NESNESİ
+    ========================================= */
 
     let order = {
+
         durum: 0,
+
         ayran: 0,
+
         name: "",
+
         address: "",
+
         payment: "",
-        note: ""
+
+        note: "",
+
+        latitude: null,
+
+        longitude: null,
+
+        googleMapsUrl: ""
+
     };
 
+    /* =========================================
+       LOCAL STORAGE
+    ========================================= */
 
-    function changeQuantity(product, amount) {
+    function saveOrder() {
+
+        localStorage.setItem(
+            STORAGE_KEY,
+            JSON.stringify(order)
+        );
+
+    }
+
+    function loadOrder() {
+
+        const savedOrder =
+            localStorage.getItem(
+                STORAGE_KEY
+            );
+
+        if (!savedOrder) {
+            return;
+        }
+
+        try {
+
+            const data =
+                JSON.parse(savedOrder);
+
+            order = {
+
+                durum:
+                    Number(data.durum) || 0,
+
+                ayran:
+                    Number(data.ayran) || 0,
+
+                name:
+                    data.name || "",
+
+                address:
+                    data.address || "",
+
+                payment:
+                    data.payment || "",
+
+                note:
+                    data.note || "",
+
+                latitude:
+                    data.latitude || null,
+
+                longitude:
+                    data.longitude || null,
+
+                googleMapsUrl:
+                    data.googleMapsUrl || ""
+
+            };
+
+            document.getElementById(
+                "durumQuantity"
+            ).textContent =
+                order.durum;
+
+            document.getElementById(
+                "ayranQuantity"
+            ).textContent =
+                order.ayran;
+
+            document.getElementById(
+                "customerName"
+            ).value =
+                order.name;
+
+            document.getElementById(
+                "customerAddress"
+            ).value =
+                order.address;
+
+            document.getElementById(
+                "orderNote"
+            ).value =
+                order.note;
+
+            document
+                .querySelectorAll(
+                    'input[name="payment"]'
+                )
+                .forEach(input => {
+
+                    input.checked =
+                        input.value ===
+                        order.payment;
+
+                });
+
+            calculateTotal();
+
+            if (
+                order.latitude &&
+                order.longitude
+            ) {
+
+                document.getElementById(
+                    "locationStatus"
+                ).textContent =
+                    "📍 Kayıtlı konum hazır.";
+
+            }
+
+        } catch (error) {
+
+            console.error(
+                "Kayıtlı sipariş okunamadı:",
+                error
+            );
+
+            localStorage.removeItem(
+                STORAGE_KEY
+            );
+
+        }
+
+    }
+
+    /* =========================================
+       ADET DEĞİŞTİR
+    ========================================= */
+
+    function changeQuantity(
+        product,
+        amount
+    ) {
 
         order[product] += amount;
 
-        if (order[product] < 0) {
+        if (
+            order[product] < 0
+        ) {
+
             order[product] = 0;
+
         }
 
         document.getElementById(
             product + "Quantity"
-        ).textContent = order[product];
+        ).textContent =
+            order[product];
 
         calculateTotal();
+
+        saveOrder();
+
     }
 
+    /* =========================================
+       TOPLAM
+    ========================================= */
 
     function calculateTotal() {
 
         const total =
-            order.durum * prices.durum +
-            order.ayran * prices.ayran;
+
+            order.durum *
+            prices.durum +
+
+            order.ayran *
+            prices.ayran;
 
         document.getElementById(
             "totalPrice"
-        ).textContent = total + " TL";
+        ).textContent =
+            total + " TL";
 
         return total;
+
     }
 
+    /* =========================================
+       GOOGLE MAPS URL
+    ========================================= */
+
+    function createGoogleMapsUrl(
+        latitude,
+        longitude
+    ) {
+
+        return (
+
+            "https://www.google.com/maps/search/?api=1" +
+
+            "&query=" +
+
+            encodeURIComponent(
+                latitude + "," + longitude
+            )
+
+        );
+
+    }
+
+    /* =========================================
+       KONUMU BUL
+    ========================================= */
+
+    async function getLocation() {
+
+        const status =
+            document.getElementById(
+                "locationStatus"
+            );
+
+        const addressInput =
+            document.getElementById(
+                "customerAddress"
+            );
+
+        if (!navigator.geolocation) {
+
+            status.textContent =
+                "❌ Tarayıcınız konum özelliğini desteklemiyor.";
+
+            return;
+        }
+
+        status.textContent =
+            "📍 Konumunuz bulunuyor...";
+
+        navigator.geolocation.getCurrentPosition(
+
+            async function(position) {
+
+                const latitude =
+                    position.coords.latitude;
+
+                const longitude =
+                    position.coords.longitude;
+
+                console.log(
+                    "GPS koordinatları:",
+                    {
+                        latitude,
+                        longitude
+                    }
+                );
+
+                status.textContent =
+                    "📍 Konum bulundu. Açık adres alınıyor...";
+
+                /*
+                 * GOOGLE MAPS LİNKİNİ ÖNCEDEN OLUŞTUR
+                 */
+
+                const googleMapsUrl =
+                    createGoogleMapsUrl(
+                        latitude,
+                        longitude
+                    );
+
+                order.latitude =
+                    latitude;
+
+                order.longitude =
+                    longitude;
+
+                order.googleMapsUrl =
+                    googleMapsUrl;
+
+                saveOrder();
+
+                /*
+                 * NOMINATIM ADRES SORGUSU
+                 */
+
+                try {
+
+                    const apiUrl =
+                        "https://nominatim.openstreetmap.org/reverse" +
+                        "?format=jsonv2" +
+                        "&lat=" +
+                        encodeURIComponent(latitude) +
+                        "&lon=" +
+                        encodeURIComponent(longitude) +
+                        "&zoom=18" +
+                        "&addressdetails=1" +
+                        "&accept-language=tr";
+
+                    console.log(
+                        "Adres sorgusu:",
+                        apiUrl
+                    );
+
+                    const response =
+                        await fetch(apiUrl, {
+
+                            method: "GET",
+
+                            headers: {
+
+                                "Accept":
+                                    "application/json"
+
+                            }
+
+                        });
+
+                    console.log(
+                        "Adres servisi HTTP:",
+                        response.status
+                    );
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            "Adres servisi HTTP " +
+                            response.status +
+                            " hatası verdi."
+                        );
+
+                    }
+
+                    const data =
+                        await response.json();
+
+                    console.log(
+                        "Adres servisi cevabı:",
+                        data
+                    );
+
+                    if (
+                        !data ||
+                        !data.address
+                    ) {
+
+                        throw new Error(
+                            "Bu koordinat için adres bilgisi bulunamadı."
+                        );
+
+                    }
+
+                    const a =
+                        data.address;
+
+                    /*
+                     * MAHALLE
+                     */
+
+                    const mahalle =
+
+                        a.neighbourhood ||
+
+                        a.quarter ||
+
+                        a.suburb ||
+
+                        a.city_district ||
+
+                        a.village ||
+
+                        "";
+
+                    /*
+                     * CADDE / SOKAK
+                     */
+
+                    const cadde =
+
+                        a.road ||
+
+                        a.street ||
+
+                        "";
+
+                    /*
+                     * BİNA NO
+                     */
+
+                    const binaNo =
+
+                        a.house_number ||
+
+                        "";
+
+                    /*
+                     * İLÇE
+                     */
+
+                    const ilce =
+
+                        a.town ||
+
+                        a.municipality ||
+
+                        a.county ||
+
+                        a.district ||
+
+                        "";
+
+                    /*
+                     * İL
+                     */
+
+                    const il =
+
+                        a.city ||
+
+                        a.province ||
+
+                        a.state ||
+
+                        "";
+
+                    /*
+                     * POSTA KODU
+                     */
+
+                    const postaKodu =
+                        a.postcode || "";
+
+                    /*
+                     * ADRESİ OLUŞTUR
+                     */
+
+                    const addressParts = [];
+
+                    if (mahalle) {
+
+                        addressParts.push(
+                            mahalle + " Mah."
+                        );
+
+                    }
+
+                    if (cadde) {
+
+                        addressParts.push(
+                            cadde
+                        );
+
+                    }
+
+                    if (binaNo) {
+
+                        addressParts.push(
+                            "No:" + binaNo
+                        );
+
+                    }
+
+                    let cityPart = "";
+
+                    if (ilce) {
+
+                        cityPart =
+                            ilce;
+
+                    }
+
+                    if (il) {
+
+                        if (cityPart) {
+
+                            cityPart +=
+                                "/";
+
+                        }
+
+                        cityPart +=
+                            il;
+
+                    }
+
+                    if (cityPart) {
+
+                        addressParts.push(
+                            cityPart
+                        );
+
+                    }
+
+                    if (postaKodu) {
+
+                        addressParts.push(
+                            postaKodu
+                        );
+
+                    }
+
+                    let formattedAddress =
+                        addressParts.join(" ");
+
+                    /*
+                     * EĞER PARÇALI ADRES YETERLİ DEĞİLSE
+                     */
+
+                    if (
+                        formattedAddress.length < 10
+                    ) {
+
+                        formattedAddress =
+                            data.display_name || "";
+
+                    }
+
+                    /*
+                     * HİÇ ADRES YOKSA KOORDİNAT KULLAN
+                     */
+
+                    if (
+                        !formattedAddress
+                    ) {
+
+                        formattedAddress =
+                            "Konum: " +
+                            latitude +
+                            ", " +
+                            longitude;
+
+                    }
+
+                    /*
+                     * ADRES ALANINA YAZ
+                     */
+
+                    addressInput.value =
+                        formattedAddress;
+
+                    /*
+                     * SİPARİŞE KAYDET
+                     */
+
+                    order.address =
+                        formattedAddress;
+
+                    order.latitude =
+                        latitude;
+
+                    order.longitude =
+                        longitude;
+
+                    order.googleMapsUrl =
+                        googleMapsUrl;
+
+                    saveOrder();
+
+                    /*
+                     * BAŞARILI
+                     */
+
+                    status.textContent =
+                        "✅ Konum ve açık adres başarıyla bulundu.";
+
+                    /*
+                     * QR SAYFASI AÇILIRKEN HAZIR OLSUN
+                     */
+
+                    document.getElementById(
+                        "locationPageAddress"
+                    ).textContent =
+                        formattedAddress;
+
+                    document.getElementById(
+                        "locationPageMapsButton"
+                    ).href =
+                        googleMapsUrl;
+
+                    document.getElementById(
+                        "locationQRPage"
+                    ).src =
+
+                        "https://api.qrserver.com/v1/create-qr-code/" +
+                        "?size=600x600" +
+                        "&data=" +
+                        encodeURIComponent(
+                            googleMapsUrl
+                        );
+
+                } catch (error) {
+
+                    /*
+                     * ADRES SERVİSİ BAŞARISIZ
+                     */
+
+                    console.error(
+                        "Açık adres alınamadı:",
+                        error
+                    );
+
+                    const fallbackAddress =
+
+                        "Konum: " +
+                        latitude +
+                        ", " +
+                        longitude;
+
+                    /*
+                     * KOORDİNAT ADRES ALANINA YAZ
+                     */
+
+                    addressInput.value =
+                        fallbackAddress;
+
+                    /*
+                     * SİPARİŞE KAYDET
+                     */
+
+                    order.address =
+                        fallbackAddress;
+
+                    order.latitude =
+                        latitude;
+
+                    order.longitude =
+                        longitude;
+
+                    order.googleMapsUrl =
+                        googleMapsUrl;
+
+                    saveOrder();
+
+                    /*
+                     * QR SAYFASINI DA HAZIRLA
+                     */
+
+                    document.getElementById(
+                        "locationPageAddress"
+                    ).textContent =
+                        fallbackAddress;
+
+                    document.getElementById(
+                        "locationPageMapsButton"
+                    ).href =
+                        googleMapsUrl;
+
+                    document.getElementById(
+                        "locationQRPage"
+                    ).src =
+
+                        "https://api.qrserver.com/v1/create-qr-code/" +
+                        "?size=600x600" +
+                        "&data=" +
+                        encodeURIComponent(
+                            googleMapsUrl
+                        );
+
+                    /*
+                     * KULLANICIYA NET MESAJ
+                     */
+
+                    status.textContent =
+                        "⚠️ Konum bulundu ancak açık adres alınamadı. Google Maps konumu hazır.";
+
+                }
+
+            },
+
+            function(error) {
+
+                console.error(
+                    "GPS hatası:",
+                    error
+                );
+
+                switch (error.code) {
+
+                    case error.PERMISSION_DENIED:
+
+                        status.textContent =
+                            "❌ Konum izni verilmedi. Tarayıcı ayarlarından konum iznini açın.";
+
+                        break;
+
+                    case error.POSITION_UNAVAILABLE:
+
+                        status.textContent =
+                            "❌ Konum bilgisi alınamadı. GPS/Wi-Fi konumunuzu kontrol edin.";
+
+                        break;
+
+                    case error.TIMEOUT:
+
+                        status.textContent =
+                            "❌ Konum alma işlemi zaman aşımına uğradı. Tekrar deneyin.";
+
+                        break;
+
+                    default:
+
+                        status.textContent =
+                            "❌ Konum alınırken bilinmeyen bir hata oluştu.";
+
+                }
+
+            },
+
+            {
+
+                enableHighAccuracy: true,
+
+                timeout: 30000,
+
+                maximumAge: 0
+
+            }
+
+        );
+
+    }
+
+    /* =========================================
+       QR / KONUM SAYFASINI AÇ
+    ========================================= */
+
+    function openLocationPage() {
+
+        /*
+           KONUM ALINMAMIŞSA
+        */
+
+        if (
+            !order.latitude ||
+            !order.longitude
+        ) {
+
+            alert(
+                "Önce 📍 konum ikonuna basarak konumunuzu bulun."
+            );
+
+            return;
+
+        }
+
+        const page =
+            document.getElementById(
+                "locationPage"
+            );
+
+        const address =
+            document.getElementById(
+                "locationPageAddress"
+            );
+
+        const qr =
+            document.getElementById(
+                "locationQRPage"
+            );
+
+        const mapsButton =
+            document.getElementById(
+                "locationPageMapsButton"
+            );
+
+        /*
+           GOOGLE MAPS URL
+        */
+
+        const googleMapsUrl =
+
+            order.googleMapsUrl ||
+
+            createGoogleMapsUrl(
+                order.latitude,
+                order.longitude
+            );
+
+        /*
+           ADRESİ GÖSTER
+        */
+
+        address.textContent =
+
+            order.address ||
+
+            "Konum adresi bulunamadı.";
+
+        /*
+           GOOGLE MAPS BUTONU
+        */
+
+        mapsButton.href =
+            googleMapsUrl;
+
+        /*
+           QR KODU
+        */
+
+        qr.src =
+
+            "https://api.qrserver.com/v1/create-qr-code/" +
+
+            "?size=600x600" +
+
+            "&data=" +
+
+            encodeURIComponent(
+                googleMapsUrl
+            );
+
+        /*
+           SİPARİŞ SAYFASINI GİZLE
+        */
+
+        document.getElementById(
+            "orderPage"
+        ).classList.add(
+            "hidden"
+        );
+
+        /*
+           ÖZET SAYFASI DA GİZLİ OLSUN
+        */
+
+        document.getElementById(
+            "summaryPage"
+        ).classList.add(
+            "hidden"
+        );
+
+        /*
+           KONUM SAYFASINI AÇ
+        */
+
+        page.classList.remove(
+            "hidden"
+        );
+
+        window.scrollTo(
+            0,
+            0
+        );
+
+    }
+
+    /* =========================================
+       KONUM SAYFASINI KAPAT
+    ========================================= */
+
+    function closeLocationPage() {
+
+        document.getElementById(
+            "locationPage"
+        ).classList.add(
+            "hidden"
+        );
+
+        /*
+           ÖNCEKİ SAYFA SİPARİŞ ÖZETİYSE
+           ÖZETİ AÇ
+        */
+
+        document.getElementById(
+            "summaryPage"
+        ).classList.remove(
+            "hidden"
+        );
+
+        window.scrollTo(
+            0,
+            0
+        );
+
+    }
+
+    /* =========================================
+       SİPARİŞ OLUŞTUR
+    ========================================= */
 
     function createOrder() {
 
         const name =
+
             document.getElementById(
                 "customerName"
             ).value.trim();
 
         const address =
+
             document.getElementById(
                 "customerAddress"
             ).value.trim();
 
         const note =
+
             document.getElementById(
                 "orderNote"
             ).value.trim();
 
         const payment =
+
             document.querySelector(
                 'input[name="payment"]:checked'
             );
 
-
         if (!name) {
-            alert("Lütfen adınızı girin.");
-            return;
-        }
 
+            alert(
+                "Lütfen adınızı girin."
+            );
+
+            return;
+
+        }
 
         if (!address) {
-            alert("Lütfen adresinizi girin.");
-            return;
-        }
 
+            alert(
+                "Lütfen adresinizi girin."
+            );
+
+            return;
+
+        }
 
         if (
-            order.durum === 0 &&
-            order.ayran === 0
-        ) {
-            alert("Lütfen ürün seçin.");
-            return;
-        }
 
+            order.durum === 0 &&
+
+            order.ayran === 0
+
+        ) {
+
+            alert(
+                "Lütfen ürün seçin."
+            );
+
+            return;
+
+        }
 
         if (!payment) {
-            alert("Lütfen ödeme şeklini seçin.");
+
+            alert(
+                "Lütfen ödeme şeklini seçin."
+            );
+
             return;
+
         }
 
+        order.name =
+            name;
 
-        order.name = name;
-        order.address = address;
-        order.payment = payment.value;
-        order.note = note;
+        order.address =
+            address;
 
+        order.payment =
+            payment.value;
 
-        const total = calculateTotal();
+        order.note =
+            note;
 
+        saveOrder();
 
-        let html = "";
+        const total =
+            calculateTotal();
 
+        let html =
+            "";
 
-        if (order.durum > 0) {
+        if (
+            order.durum > 0
+        ) {
 
             html += `
+
                 <div class="summary-row">
+
                     <span>
                         🌯 Dürüm × ${order.durum}
                     </span>
@@ -653,15 +1932,21 @@
                     <span>
                         ${order.durum * prices.durum} TL
                     </span>
+
                 </div>
+
             `;
+
         }
 
-
-        if (order.ayran > 0) {
+        if (
+            order.ayran > 0
+        ) {
 
             html += `
+
                 <div class="summary-row">
+
                     <span>
                         🥛 Ayran × ${order.ayran}
                     </span>
@@ -669,187 +1954,332 @@
                     <span>
                         ${order.ayran * prices.ayran} TL
                     </span>
-                </div>
-            `;
-        }
 
+                </div>
+
+            `;
+
+        }
 
         document.getElementById(
             "summaryContent"
-        ).innerHTML = html;
-
+        ).innerHTML =
+            html;
 
         document.getElementById(
             "summaryTotal"
-        ).textContent = total + " TL";
-
+        ).textContent =
+            total + " TL";
 
         document.getElementById(
             "summaryName"
-        ).textContent = order.name;
-
+        ).textContent =
+            order.name;
 
         document.getElementById(
             "summaryAddress"
-        ).textContent = order.address;
-
+        ).textContent =
+            order.address;
 
         document.getElementById(
             "summaryPayment"
-        ).textContent = order.payment;
-
+        ).textContent =
+            order.payment;
 
         document.getElementById(
             "summaryNote"
         ).textContent =
-            order.note || "Not belirtilmedi.";
 
+            order.note ||
+
+            "Not belirtilmedi.";
 
         document.getElementById(
             "orderPage"
-        ).classList.add("hidden");
-
+        ).classList.add(
+            "hidden"
+        );
 
         document.getElementById(
             "summaryPage"
-        ).classList.remove("hidden");
+        ).classList.remove(
+            "hidden"
+        );
 
+        window.scrollTo(
+            0,
+            0
+        );
 
-        window.scrollTo(0, 0);
     }
 
+    /* =========================================
+       SİPARİŞE GERİ DÖN
+    ========================================= */
 
     function goBack() {
 
         document.getElementById(
             "summaryPage"
-        ).classList.add("hidden");
+        ).classList.add(
+            "hidden"
+        );
 
         document.getElementById(
             "orderPage"
-        ).classList.remove("hidden");
+        ).classList.remove(
+            "hidden"
+        );
+
+        window.scrollTo(
+            0,
+            0
+        );
+
     }
 
+    /* =========================================
+       SİPARİŞİ İPTAL ET
+    ========================================= */
 
     function cancelOrder() {
 
-        order = {
-            durum: 0,
-            ayran: 0,
-            name: "",
-            address: "",
-            payment: "",
-            note: ""
-        };
+        localStorage.removeItem(
+            STORAGE_KEY
+        );
 
+        order = {
+
+            durum: 0,
+
+            ayran: 0,
+
+            name: "",
+
+            address: "",
+
+            payment: "",
+
+            note: "",
+
+            latitude: null,
+
+            longitude: null,
+
+            googleMapsUrl: ""
+
+        };
 
         document.getElementById(
             "durumQuantity"
-        ).textContent = "0";
-
+        ).textContent =
+            "0";
 
         document.getElementById(
             "ayranQuantity"
-        ).textContent = "0";
-
+        ).textContent =
+            "0";
 
         document.getElementById(
             "customerName"
-        ).value = "";
-
+        ).value =
+            "";
 
         document.getElementById(
             "customerAddress"
-        ).value = "";
-
+        ).value =
+            "";
 
         document.getElementById(
             "orderNote"
-        ).value = "";
-
+        ).value =
+            "";
 
         document
             .querySelectorAll(
                 'input[name="payment"]'
             )
             .forEach(input => {
-                input.checked = false;
-            });
 
+                input.checked =
+                    false;
+
+            });
 
         document.getElementById(
             "totalPrice"
-        ).textContent = "0 TL";
+        ).textContent =
+            "0 TL";
 
+        document.getElementById(
+            "locationStatus"
+        ).textContent =
+            "";
 
         document.getElementById(
             "summaryPage"
-        ).classList.add("hidden");
+        ).classList.add(
+            "hidden"
+        );
 
+        document.getElementById(
+            "locationPage"
+        ).classList.add(
+            "hidden"
+        );
 
         document.getElementById(
             "orderPage"
-        ).classList.remove("hidden");
+        ).classList.remove(
+            "hidden"
+        );
 
+        window.scrollTo(
+            0,
+            0
+        );
 
-        window.scrollTo(0, 0);
     }
 
+    /* =========================================
+       WHATSAPP
+    ========================================= */
 
     function sendToWhatsApp() {
+    const total = calculateTotal();
 
-        const total = calculateTotal();
+    let message =
+        `Merhaba, ben ${order.name}.\n\n` +
+        `Sipariş vermek istiyorum:\n\n`;
 
-
-        let message =
-            `Merhaba, ben ${order.name}.\n\n` +
-            `Sipariş vermek istiyorum:\n\n`;
-
-
-        if (order.durum > 0) {
-            message +=
-                `${order.durum} adet dürüm\n`;
-        }
-
-
-        if (order.ayran > 0) {
-            message +=
-                `${order.ayran} adet ayran\n`;
-        }
-
-
-        message +=
-            `\nToplam: ${total} TL\n` +
-            `Adresim: ${order.address}\n` +
-            `Ödeme: ${order.payment}\n`;
-
-
-        if (order.note) {
-            message +=
-                `Sipariş notu: ${order.note}\n`;
-        }
-
-
-        const phoneNumber =
-            "905451014563";
-
-
-        const url =
-            "https://wa.me/" +
-            phoneNumber +
-            "?text=" +
-            encodeURIComponent(message);
-
-
-        window.location.href = url;
+    if (order.durum > 0) {
+        message += `${order.durum} adet dürüm\n`;
     }
 
+    if (order.ayran > 0) {
+        message += `${order.ayran} adet ayran\n`;
+    }
 
-    // =========================
-    // PWA SERVICE WORKER
-    // =========================
+    message +=
+        `\nToplam: ${total} TL\n` +
+        `Adresim: ${order.address}\n`;
 
-    if ("serviceWorker" in navigator) {
+    // Google Maps bağlantısı
+    if (order.googleMapsUrl) {
+        message +=
+            `\n📍 Google Maps Konumu:\n` +
+            `${order.googleMapsUrl}\n`;
+
+        // QR kod bağlantısı
+        const qrUrl =
+            "https://api.qrserver.com/v1/create-qr-code/" +
+            "?size=600x600&data=" +
+            encodeURIComponent(order.googleMapsUrl);
+
+        message +=
+            `\n📱 Konum QR Kodu:\n` +
+            `${qrUrl}\n`;
+    }
+
+    message +=
+        `\nÖdeme: ${order.payment}\n`;
+
+    if (order.note) {
+        message += `Sipariş notu: ${order.note}\n`;
+    }
+
+    const phoneNumber = "905451014563";
+
+    const url =
+        "https://wa.me/" +
+        phoneNumber +
+        "?text=" +
+        encodeURIComponent(message);
+
+    window.location.href = url;
+}
+
+    /* =========================================
+       FORM DEĞİŞİKLİKLERİNİ KAYDET
+    ========================================= */
+
+    document.getElementById(
+        "customerName"
+    ).addEventListener(
+        "input",
+        function() {
+
+            order.name =
+                this.value;
+
+            saveOrder();
+
+        }
+    );
+
+    document.getElementById(
+        "customerAddress"
+    ).addEventListener(
+        "input",
+        function() {
+
+            order.address =
+                this.value;
+
+            saveOrder();
+
+        }
+    );
+
+    document.getElementById(
+        "orderNote"
+    ).addEventListener(
+        "input",
+        function() {
+
+            order.note =
+                this.value;
+
+            saveOrder();
+
+        }
+    );
+
+    document
+        .querySelectorAll(
+            'input[name="payment"]'
+        )
+        .forEach(
+            input => {
+
+                input.addEventListener(
+                    "change",
+                    function() {
+
+                        order.payment =
+                            this.value;
+
+                        saveOrder();
+
+                    }
+                );
+
+            }
+        );
+
+    /* =========================================
+       SAYFA AÇILINCA KAYITLI SİPARİŞİ GETİR
+    ========================================= */
+
+    loadOrder();
+
+    /* =========================================
+       PWA SERVICE WORKER
+    ========================================= */
+
+    if (
+        "serviceWorker" in navigator
+    ) {
 
         window.addEventListener(
             "load",
@@ -866,7 +2296,7 @@
 
 </script>
 
-
 </body>
 
 </html>
+```
