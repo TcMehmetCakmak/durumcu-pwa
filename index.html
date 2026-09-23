@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 
 <html lang="tr">
@@ -412,6 +411,321 @@
         }
 
         /* =========================================
+           YORUM BUTONU
+           MEVCUT TASARIMI BOZMADAN
+        ========================================= */
+
+        .review-header {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .review-header h1 {
+            margin: 0;
+            padding-right: 45px;
+            padding-left: 45px;
+        }
+
+        .review-button {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+
+            width: 38px;
+            height: 38px;
+
+            border: none;
+            border-radius: 9px;
+
+            background: #e63946;
+            color: white;
+
+            font-size: 19px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+        }
+
+        .review-button:active {
+            transform:
+                translateY(-50%)
+                scale(.88);
+        }
+
+        .review-count {
+            position: absolute;
+            top: -7px;
+            right: -7px;
+
+            min-width: 19px;
+            height: 19px;
+
+            padding: 0 4px;
+
+            border-radius: 50%;
+
+            background: #222;
+            color: white;
+
+            font-size: 11px;
+            font-weight: bold;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 2px solid white;
+        }
+
+        /* =========================================
+           YORUM SAYFASI
+        ========================================= */
+
+        #reviewPage {
+            min-height: 100vh;
+        }
+
+        .review-page-header {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: white;
+            border-radius: 18px;
+
+            padding: 18px 55px 18px 55px;
+
+            margin-bottom: 18px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,.08);
+        }
+
+        .review-page-header h2 {
+            margin: 0;
+            font-size: 21px;
+            text-align: center;
+        }
+
+        .close-review-page {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            width: 38px;
+            height: 38px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: #eee;
+
+            font-size: 27px;
+            line-height: 1;
+
+            cursor: pointer;
+        }
+
+        .close-review-page:active {
+            transform:
+                translateY(-50%)
+                scale(.90);
+        }
+
+        /* =========================================
+           YORUM ORTALAMA
+        ========================================= */
+
+        .review-summary {
+            text-align: center;
+
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 22px;
+
+            margin-bottom: 18px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,.08);
+        }
+
+        .review-average {
+            font-size: 42px;
+            font-weight: bold;
+
+            color: #e63946;
+        }
+
+        .review-stars-large {
+            font-size: 27px;
+            color: #f5a623;
+
+            letter-spacing: 2px;
+
+            margin-top: 4px;
+        }
+
+        .review-count-text {
+            margin-top: 7px;
+
+            font-size: 14px;
+            color: #777;
+        }
+
+        /* =========================================
+           YORUM FORMU
+        ========================================= */
+
+        .review-form-card {
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 22px;
+
+            margin-bottom: 18px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,.08);
+        }
+
+        .review-form-card h2 {
+            margin-bottom: 18px;
+        }
+
+        .star-selector {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            gap: 4px;
+
+            margin-top: 8px;
+            margin-bottom: 18px;
+        }
+
+        .star-selector button {
+            width: 43px;
+            height: 43px;
+
+            padding: 0;
+
+            border: none;
+            background: transparent;
+
+            color: #ccc;
+
+            font-size: 31px;
+
+            cursor: pointer;
+
+            transition:
+                transform .12s ease,
+                color .12s ease;
+        }
+
+        .star-selector button:hover {
+            transform: scale(1.1);
+        }
+
+        .star-selector button.selected {
+            color: #f5a623;
+        }
+
+        /* =========================================
+           YORUM LİSTESİ
+        ========================================= */
+
+        .reviews-title {
+            margin-bottom: 12px;
+        }
+
+        .review-item {
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 18px;
+
+            margin-bottom: 12px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,.08);
+        }
+
+        .review-item-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 10px;
+
+            margin-bottom: 9px;
+        }
+
+        .reviewer-name {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .review-item-stars {
+            color: #f5a623;
+            font-size: 17px;
+
+            letter-spacing: 1px;
+
+            white-space: nowrap;
+        }
+
+        .review-comment {
+            color: #444;
+            font-size: 15px;
+            line-height: 1.5;
+
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .no-reviews {
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            color: #777;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,.08);
+        }
+
+        .review-storage-info {
+            text-align: center;
+
+            color: #999;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+
+            margin-top: 15px;
+        }
+
+        /* =========================================
            MOBİL
         ========================================= */
 
@@ -428,6 +742,12 @@
             .qr-big-container img {
                 width: 240px;
                 height: 240px;
+            }
+
+            .review-item-header {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 5px;
             }
 
         }
@@ -450,9 +770,34 @@
 
         <div class="card">
 
-            <h1>
-                🌯 Dürümcü
-            </h1>
+            <div class="review-header">
+
+                <h1>
+                    🌯 Dürümcü
+                </h1>
+
+                <!-- YORUM BUTONU -->
+
+                <button
+                    type="button"
+                    class="review-button"
+                    onclick="openReviewPage()"
+                    title="Müşteri Yorumları"
+                    aria-label="Müşteri Yorumları"
+                >
+
+                    💬
+
+                    <span
+                        id="reviewCount"
+                        class="review-count"
+                    >
+                        0
+                    </span>
+
+                </button>
+
+            </div>
 
             <p class="small">
                 Online Sipariş
@@ -911,7 +1256,209 @@
 
     </div>
 
+
+    <!-- =========================================
+         YORUMLAR SAYFASI
+    ========================================= -->
+
+    <div
+        id="reviewPage"
+        class="hidden"
+    >
+
+        <!-- SAYFA BAŞLIĞI -->
+
+        <div class="review-page-header">
+
+            <h2>
+                💬 Müşteri Yorumları
+            </h2>
+
+            <button
+                type="button"
+                class="close-review-page"
+                onclick="closeReviewPage()"
+                aria-label="Kapat"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <!-- =========================================
+             ORTALAMA PUAN
+        ========================================= -->
+
+        <div class="review-summary">
+
+            <div
+                id="reviewAverage"
+                class="review-average"
+            >
+                0.0
+            </div>
+
+            <div
+                id="reviewAverageStars"
+                class="review-stars-large"
+            >
+                ☆☆☆☆☆
+            </div>
+
+            <div
+                id="reviewCountText"
+                class="review-count-text"
+            >
+                Henüz yorum yok
+            </div>
+
+        </div>
+
+
+        <!-- =========================================
+             YORUM YAZ
+        ========================================= -->
+
+        <div class="review-form-card">
+
+            <h2>
+                Yorum Yap
+            </h2>
+
+
+            <!-- İSİM -->
+
+            <label>
+                Adınız
+            </label>
+
+            <input
+                type="text"
+                id="reviewName"
+                maxlength="50"
+                placeholder="Örneğin: Mehmet"
+            >
+
+
+            <!-- PUAN -->
+
+            <label>
+                Puanınız
+            </label>
+
+            <div
+                id="starSelector"
+                class="star-selector"
+            >
+
+                <button
+                    type="button"
+                    data-rating="1"
+                    onclick="selectReviewRating(1)"
+                >
+                    ★
+                </button>
+
+                <button
+                    type="button"
+                    data-rating="2"
+                    onclick="selectReviewRating(2)"
+                >
+                    ★
+                </button>
+
+                <button
+                    type="button"
+                    data-rating="3"
+                    onclick="selectReviewRating(3)"
+                >
+                    ★
+                </button>
+
+                <button
+                    type="button"
+                    data-rating="4"
+                    onclick="selectReviewRating(4)"
+                >
+                    ★
+                </button>
+
+                <button
+                    type="button"
+                    data-rating="5"
+                    onclick="selectReviewRating(5)"
+                >
+                    ★
+                </button>
+
+            </div>
+
+
+            <!-- YORUM -->
+
+            <label>
+                Yorumunuz
+            </label>
+
+            <textarea
+                id="reviewComment"
+                maxlength="500"
+                placeholder="Yemeğimiz ve hizmetimiz hakkında düşünceleriniz..."
+            ></textarea>
+
+
+            <!-- GÖNDER -->
+
+            <button
+                type="button"
+                class="main-button order-button"
+                onclick="submitReview()"
+            >
+                ⭐ Yorumu Gönder
+            </button>
+
+        </div>
+
+
+        <!-- =========================================
+             YORUMLAR
+        ========================================= -->
+
+        <div class="card">
+
+            <h2 class="reviews-title">
+                Son Yorumlar
+            </h2>
+
+            <div
+                id="reviewList"
+            ></div>
+
+            <div class="review-storage-info">
+
+                Şimdilik yorumlar bu cihazın
+                tarayıcısında saklanmaktadır.
+
+            </div>
+
+        </div>
+
+
+        <!-- GERİ DÖN -->
+
+        <button
+            type="button"
+            class="main-button back-button"
+            onclick="closeReviewPage()"
+        >
+            ← Sipariş Sayfasına Dön
+        </button>
+
+    </div>
+
 </div>
+
 
 <script>
 
@@ -929,6 +1476,14 @@
 
     const STORAGE_KEY =
         "durumcu_order";
+
+    /*
+     * YORUMLAR İÇİN AYRI LOCAL STORAGE
+     */
+
+    const REVIEW_STORAGE_KEY =
+        "durumcu_reviews";
+
 
     /* =========================================
        SİPARİŞ NESNESİ
@@ -956,6 +1511,14 @@
 
     };
 
+
+    /* =========================================
+       YORUM PUANI
+    ========================================= */
+
+    let selectedReviewRating = 0;
+
+
     /* =========================================
        LOCAL STORAGE
     ========================================= */
@@ -968,6 +1531,7 @@
         );
 
     }
+
 
     function loadOrder() {
 
@@ -1082,6 +1646,7 @@
 
     }
 
+
     /* =========================================
        ADET DEĞİŞTİR
     ========================================= */
@@ -1112,6 +1677,7 @@
 
     }
 
+
     /* =========================================
        TOPLAM
     ========================================= */
@@ -1135,6 +1701,7 @@
 
     }
 
+
     /* =========================================
        GOOGLE MAPS URL
     ========================================= */
@@ -1157,6 +1724,7 @@
         );
 
     }
+
 
     /* =========================================
        KONUMU BUL
@@ -1206,6 +1774,7 @@
                 status.textContent =
                     "📍 Konum bulundu. Açık adres alınıyor...";
 
+
                 /*
                  * GOOGLE MAPS LİNKİNİ ÖNCEDEN OLUŞTUR
                  */
@@ -1226,6 +1795,7 @@
                     googleMapsUrl;
 
                 saveOrder();
+
 
                 /*
                  * NOMINATIM ADRES SORGUSU
@@ -1300,6 +1870,7 @@
                     const a =
                         data.address;
 
+
                     /*
                      * MAHALLE
                      */
@@ -1318,6 +1889,7 @@
 
                         "";
 
+
                     /*
                      * CADDE / SOKAK
                      */
@@ -1330,6 +1902,7 @@
 
                         "";
 
+
                     /*
                      * BİNA NO
                      */
@@ -1339,6 +1912,7 @@
                         a.house_number ||
 
                         "";
+
 
                     /*
                      * İLÇE
@@ -1356,6 +1930,7 @@
 
                         "";
 
+
                     /*
                      * İL
                      */
@@ -1370,6 +1945,7 @@
 
                         "";
 
+
                     /*
                      * POSTA KODU
                      */
@@ -1377,11 +1953,13 @@
                     const postaKodu =
                         a.postcode || "";
 
+
                     /*
                      * ADRESİ OLUŞTUR
                      */
 
                     const addressParts = [];
+
 
                     if (mahalle) {
 
@@ -1391,6 +1969,7 @@
 
                     }
 
+
                     if (cadde) {
 
                         addressParts.push(
@@ -1398,6 +1977,7 @@
                         );
 
                     }
+
 
                     if (binaNo) {
 
@@ -1407,7 +1987,9 @@
 
                     }
 
+
                     let cityPart = "";
+
 
                     if (ilce) {
 
@@ -1415,6 +1997,7 @@
                             ilce;
 
                     }
+
 
                     if (il) {
 
@@ -1430,6 +2013,7 @@
 
                     }
 
+
                     if (cityPart) {
 
                         addressParts.push(
@@ -1437,6 +2021,7 @@
                         );
 
                     }
+
 
                     if (postaKodu) {
 
@@ -1446,8 +2031,10 @@
 
                     }
 
+
                     let formattedAddress =
                         addressParts.join(" ");
+
 
                     /*
                      * EĞER PARÇALI ADRES YETERLİ DEĞİLSE
@@ -1461,6 +2048,7 @@
                             data.display_name || "";
 
                     }
+
 
                     /*
                      * HİÇ ADRES YOKSA KOORDİNAT KULLAN
@@ -1478,12 +2066,14 @@
 
                     }
 
+
                     /*
                      * ADRES ALANINA YAZ
                      */
 
                     addressInput.value =
                         formattedAddress;
+
 
                     /*
                      * SİPARİŞE KAYDET
@@ -1503,12 +2093,14 @@
 
                     saveOrder();
 
+
                     /*
                      * BAŞARILI
                      */
 
                     status.textContent =
                         "✅ Konum ve açık adres başarıyla bulundu.";
+
 
                     /*
                      * QR SAYFASI AÇILIRKEN HAZIR OLSUN
@@ -1519,10 +2111,12 @@
                     ).textContent =
                         formattedAddress;
 
+
                     document.getElementById(
                         "locationPageMapsButton"
                     ).href =
                         googleMapsUrl;
+
 
                     document.getElementById(
                         "locationQRPage"
@@ -1534,6 +2128,7 @@
                         encodeURIComponent(
                             googleMapsUrl
                         );
+
 
                 } catch (error) {
 
@@ -1546,6 +2141,7 @@
                         error
                     );
 
+
                     const fallbackAddress =
 
                         "Konum: " +
@@ -1553,12 +2149,14 @@
                         ", " +
                         longitude;
 
+
                     /*
                      * KOORDİNAT ADRES ALANINA YAZ
                      */
 
                     addressInput.value =
                         fallbackAddress;
+
 
                     /*
                      * SİPARİŞE KAYDET
@@ -1578,6 +2176,7 @@
 
                     saveOrder();
 
+
                     /*
                      * QR SAYFASINI DA HAZIRLA
                      */
@@ -1587,10 +2186,12 @@
                     ).textContent =
                         fallbackAddress;
 
+
                     document.getElementById(
                         "locationPageMapsButton"
                     ).href =
                         googleMapsUrl;
+
 
                     document.getElementById(
                         "locationQRPage"
@@ -1603,6 +2204,7 @@
                             googleMapsUrl
                         );
 
+
                     /*
                      * KULLANICIYA NET MESAJ
                      */
@@ -1613,6 +2215,7 @@
                 }
 
             },
+
 
             function(error) {
 
@@ -1630,6 +2233,7 @@
 
                         break;
 
+
                     case error.POSITION_UNAVAILABLE:
 
                         status.textContent =
@@ -1637,12 +2241,14 @@
 
                         break;
 
+
                     case error.TIMEOUT:
 
                         status.textContent =
                             "❌ Konum alma işlemi zaman aşımına uğradı. Tekrar deneyin.";
 
                         break;
+
 
                     default:
 
@@ -1667,6 +2273,7 @@
 
     }
 
+
     /* =========================================
        QR / KONUM SAYFASINI AÇ
     ========================================= */
@@ -1690,6 +2297,7 @@
 
         }
 
+
         const page =
             document.getElementById(
                 "locationPage"
@@ -1710,6 +2318,7 @@
                 "locationPageMapsButton"
             );
 
+
         /*
            GOOGLE MAPS URL
         */
@@ -1723,6 +2332,7 @@
                 order.longitude
             );
 
+
         /*
            ADRESİ GÖSTER
         */
@@ -1733,12 +2343,14 @@
 
             "Konum adresi bulunamadı.";
 
+
         /*
            GOOGLE MAPS BUTONU
         */
 
         mapsButton.href =
             googleMapsUrl;
+
 
         /*
            QR KODU
@@ -1756,6 +2368,7 @@
                 googleMapsUrl
             );
 
+
         /*
            SİPARİŞ SAYFASINI GİZLE
         */
@@ -1765,6 +2378,7 @@
         ).classList.add(
             "hidden"
         );
+
 
         /*
            ÖZET SAYFASI DA GİZLİ OLSUN
@@ -1776,6 +2390,18 @@
             "hidden"
         );
 
+
+        /*
+           YORUM SAYFASI DA GİZLİ OLSUN
+        */
+
+        document.getElementById(
+            "reviewPage"
+        ).classList.add(
+            "hidden"
+        );
+
+
         /*
            KONUM SAYFASINI AÇ
         */
@@ -1784,12 +2410,14 @@
             "hidden"
         );
 
+
         window.scrollTo(
             0,
             0
         );
 
     }
+
 
     /* =========================================
        KONUM SAYFASINI KAPAT
@@ -1803,6 +2431,7 @@
             "hidden"
         );
 
+
         /*
            ÖNCEKİ SAYFA SİPARİŞ ÖZETİYSE
            ÖZETİ AÇ
@@ -1814,12 +2443,14 @@
             "hidden"
         );
 
+
         window.scrollTo(
             0,
             0
         );
 
     }
+
 
     /* =========================================
        SİPARİŞ OLUŞTUR
@@ -1833,11 +2464,13 @@
                 "customerName"
             ).value.trim();
 
+
         const address =
 
             document.getElementById(
                 "customerAddress"
             ).value.trim();
+
 
         const note =
 
@@ -1845,11 +2478,13 @@
                 "orderNote"
             ).value.trim();
 
+
         const payment =
 
             document.querySelector(
                 'input[name="payment"]:checked'
             );
+
 
         if (!name) {
 
@@ -1861,6 +2496,7 @@
 
         }
 
+
         if (!address) {
 
             alert(
@@ -1870,6 +2506,7 @@
             return;
 
         }
+
 
         if (
 
@@ -1887,6 +2524,7 @@
 
         }
 
+
         if (!payment) {
 
             alert(
@@ -1896,6 +2534,7 @@
             return;
 
         }
+
 
         order.name =
             name;
@@ -1909,13 +2548,17 @@
         order.note =
             note;
 
+
         saveOrder();
+
 
         const total =
             calculateTotal();
 
+
         let html =
             "";
+
 
         if (
             order.durum > 0
@@ -1939,6 +2582,7 @@
 
         }
 
+
         if (
             order.ayran > 0
         ) {
@@ -1961,30 +2605,36 @@
 
         }
 
+
         document.getElementById(
             "summaryContent"
         ).innerHTML =
             html;
+
 
         document.getElementById(
             "summaryTotal"
         ).textContent =
             total + " TL";
 
+
         document.getElementById(
             "summaryName"
         ).textContent =
             order.name;
+
 
         document.getElementById(
             "summaryAddress"
         ).textContent =
             order.address;
 
+
         document.getElementById(
             "summaryPayment"
         ).textContent =
             order.payment;
+
 
         document.getElementById(
             "summaryNote"
@@ -1994,11 +2644,13 @@
 
             "Not belirtilmedi.";
 
+
         document.getElementById(
             "orderPage"
         ).classList.add(
             "hidden"
         );
+
 
         document.getElementById(
             "summaryPage"
@@ -2006,12 +2658,14 @@
             "hidden"
         );
 
+
         window.scrollTo(
             0,
             0
         );
 
     }
+
 
     /* =========================================
        SİPARİŞE GERİ DÖN
@@ -2025,11 +2679,13 @@
             "hidden"
         );
 
+
         document.getElementById(
             "orderPage"
         ).classList.remove(
             "hidden"
         );
+
 
         window.scrollTo(
             0,
@@ -2037,6 +2693,7 @@
         );
 
     }
+
 
     /* =========================================
        SİPARİŞİ İPTAL ET
@@ -2047,6 +2704,7 @@
         localStorage.removeItem(
             STORAGE_KEY
         );
+
 
         order = {
 
@@ -2070,30 +2728,36 @@
 
         };
 
+
         document.getElementById(
             "durumQuantity"
         ).textContent =
             "0";
+
 
         document.getElementById(
             "ayranQuantity"
         ).textContent =
             "0";
 
+
         document.getElementById(
             "customerName"
         ).value =
             "";
+
 
         document.getElementById(
             "customerAddress"
         ).value =
             "";
 
+
         document.getElementById(
             "orderNote"
         ).value =
             "";
+
 
         document
             .querySelectorAll(
@@ -2106,15 +2770,18 @@
 
             });
 
+
         document.getElementById(
             "totalPrice"
         ).textContent =
             "0 TL";
 
+
         document.getElementById(
             "locationStatus"
         ).textContent =
             "";
+
 
         document.getElementById(
             "summaryPage"
@@ -2122,17 +2789,27 @@
             "hidden"
         );
 
+
         document.getElementById(
             "locationPage"
         ).classList.add(
             "hidden"
         );
 
+
+        document.getElementById(
+            "reviewPage"
+        ).classList.add(
+            "hidden"
+        );
+
+
         document.getElementById(
             "orderPage"
         ).classList.remove(
             "hidden"
         );
+
 
         window.scrollTo(
             0,
@@ -2141,63 +2818,104 @@
 
     }
 
+
     /* =========================================
        WHATSAPP
     ========================================= */
 
     function sendToWhatsApp() {
-    const total = calculateTotal();
 
-    let message =
-        `Merhaba, ben ${order.name}.\n\n` +
-        `Sipariş vermek istiyorum:\n\n`;
+        const total =
+            calculateTotal();
 
-    if (order.durum > 0) {
-        message += `${order.durum} adet dürüm\n`;
-    }
 
-    if (order.ayran > 0) {
-        message += `${order.ayran} adet ayran\n`;
-    }
+        let message =
+            `Merhaba, ben ${order.name}.\n\n` +
+            `Sipariş vermek istiyorum:\n\n`;
 
-    message +=
-        `\nToplam: ${total} TL\n` +
-        `Adresim: ${order.address}\n`;
 
-    // Google Maps bağlantısı
-    if (order.googleMapsUrl) {
-        message +=
-            `\n📍 Google Maps Konumu:\n` +
-            `${order.googleMapsUrl}\n`;
+        if (order.durum > 0) {
 
-        // QR kod bağlantısı
-        const qrUrl =
-            "https://api.qrserver.com/v1/create-qr-code/" +
-            "?size=600x600&data=" +
-            encodeURIComponent(order.googleMapsUrl);
+            message +=
+                `${order.durum} adet dürüm\n`;
+
+        }
+
+
+        if (order.ayran > 0) {
+
+            message +=
+                `${order.ayran} adet ayran\n`;
+
+        }
+
 
         message +=
-            `\n📱 Konum QR Kodu:\n` +
-            `${qrUrl}\n`;
+            `\nToplam: ${total} TL\n` +
+            `Adresim: ${order.address}\n`;
+
+
+        /*
+         * GOOGLE MAPS BAĞLANTISI
+         */
+
+        if (order.googleMapsUrl) {
+
+            message +=
+                `\n📍 Google Maps Konumu:\n` +
+                `${order.googleMapsUrl}\n`;
+
+
+            /*
+             * QR KODU BAĞLANTISI
+             */
+
+            const qrUrl =
+
+                "https://api.qrserver.com/v1/create-qr-code/" +
+
+                "?size=600x600&data=" +
+
+                encodeURIComponent(
+                    order.googleMapsUrl
+                );
+
+
+            message +=
+                `\n📱 Konum QR Kodu:\n` +
+                `${qrUrl}\n`;
+
+        }
+
+
+        message +=
+            `\nÖdeme: ${order.payment}\n`;
+
+
+        if (order.note) {
+
+            message +=
+                `Sipariş notu: ${order.note}\n`;
+
+        }
+
+
+        const phoneNumber =
+            "905451014563";
+
+
+        const url =
+            "https://wa.me/" +
+            phoneNumber +
+            "?text=" +
+            encodeURIComponent(message);
+
+
+        window.location.href =
+            url;
+
     }
 
-    message +=
-        `\nÖdeme: ${order.payment}\n`;
-
-    if (order.note) {
-        message += `Sipariş notu: ${order.note}\n`;
-    }
-
-    const phoneNumber = "905451014563";
-
-    const url =
-        "https://wa.me/" +
-        phoneNumber +
-        "?text=" +
-        encodeURIComponent(message);
-
-    window.location.href = url;
-}
 
     /* =========================================
        FORM DEĞİŞİKLİKLERİNİ KAYDET
@@ -2217,6 +2935,7 @@
         }
     );
 
+
     document.getElementById(
         "customerAddress"
     ).addEventListener(
@@ -2231,6 +2950,7 @@
         }
     );
 
+
     document.getElementById(
         "orderNote"
     ).addEventListener(
@@ -2244,6 +2964,7 @@
 
         }
     );
+
 
     document
         .querySelectorAll(
@@ -2267,11 +2988,720 @@
             }
         );
 
+
     /* =========================================
-       SAYFA AÇILINCA KAYITLI SİPARİŞİ GETİR
+       YORUM SİSTEMİ
+       LOCAL STORAGE
+    ========================================= */
+
+
+    /*
+     * TÜM YORUMLARI AL
+     */
+
+    function getReviews() {
+
+        const savedReviews =
+            localStorage.getItem(
+                REVIEW_STORAGE_KEY
+            );
+
+
+        if (!savedReviews) {
+
+            return [];
+
+        }
+
+
+        try {
+
+            const reviews =
+                JSON.parse(
+                    savedReviews
+                );
+
+
+            if (
+                !Array.isArray(
+                    reviews
+                )
+            ) {
+
+                return [];
+
+            }
+
+
+            return reviews;
+
+        } catch (error) {
+
+            console.error(
+                "Yorumlar okunamadı:",
+                error
+            );
+
+
+            return [];
+
+        }
+
+    }
+
+
+    /*
+     * YORUMLARI KAYDET
+     */
+
+    function saveReviews(
+        reviews
+    ) {
+
+        localStorage.setItem(
+            REVIEW_STORAGE_KEY,
+            JSON.stringify(
+                reviews
+            )
+        );
+
+    }
+
+
+    /* =========================================
+       YORUM SAYFASINI AÇ
+    ========================================= */
+
+    function openReviewPage() {
+
+        /*
+         * GÜNCEL YORUMLARI GETİR
+         */
+
+        renderReviews();
+
+
+        /*
+         * DİĞER SAYFALARI GİZLE
+         */
+
+        document.getElementById(
+            "orderPage"
+        ).classList.add(
+            "hidden"
+        );
+
+
+        document.getElementById(
+            "summaryPage"
+        ).classList.add(
+            "hidden"
+        );
+
+
+        document.getElementById(
+            "locationPage"
+        ).classList.add(
+            "hidden"
+        );
+
+
+        /*
+         * YORUM SAYFASINI AÇ
+         */
+
+        document.getElementById(
+            "reviewPage"
+        ).classList.remove(
+            "hidden"
+        );
+
+
+        window.scrollTo(
+            0,
+            0
+        );
+
+    }
+
+
+    /* =========================================
+       YORUM SAYFASINI KAPAT
+    ========================================= */
+
+    function closeReviewPage() {
+
+        document.getElementById(
+            "reviewPage"
+        ).classList.add(
+            "hidden"
+        );
+
+
+        document.getElementById(
+            "orderPage"
+        ).classList.remove(
+            "hidden"
+        );
+
+
+        window.scrollTo(
+            0,
+            0
+        );
+
+    }
+
+
+    /* =========================================
+       YILDIZ SEÇ
+    ========================================= */
+
+    function selectReviewRating(
+        rating
+    ) {
+
+        selectedReviewRating =
+            rating;
+
+
+        const stars =
+            document.querySelectorAll(
+                "#starSelector button"
+            );
+
+
+        stars.forEach(
+            function(star) {
+
+                const starRating =
+                    Number(
+                        star.dataset.rating
+                    );
+
+
+                if (
+                    starRating <=
+                    selectedReviewRating
+                ) {
+
+                    star.classList.add(
+                        "selected"
+                    );
+
+                } else {
+
+                    star.classList.remove(
+                        "selected"
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =========================================
+       YILDIZLARI OLUŞTUR
+    ========================================= */
+
+    function getReviewStars(
+        rating
+    ) {
+
+        let stars = "";
+
+
+        for (
+            let i = 1;
+            i <= 5;
+            i++
+        ) {
+
+            if (
+                i <= rating
+            ) {
+
+                stars += "★";
+
+            } else {
+
+                stars += "☆";
+
+            }
+
+        }
+
+
+        return stars;
+
+    }
+
+
+    /* =========================================
+       YORUM GÖNDER
+    ========================================= */
+
+    function submitReview() {
+
+        const name =
+            document.getElementById(
+                "reviewName"
+            ).value.trim();
+
+
+        const comment =
+            document.getElementById(
+                "reviewComment"
+            ).value.trim();
+
+
+        /*
+         * AD KONTROLÜ
+         */
+
+        if (!name) {
+
+            alert(
+                "Lütfen adınızı girin."
+            );
+
+            document.getElementById(
+                "reviewName"
+            ).focus();
+
+            return;
+
+        }
+
+
+        /*
+         * PUAN KONTROLÜ
+         */
+
+        if (
+            selectedReviewRating < 1
+        ) {
+
+            alert(
+                "Lütfen 1 ile 5 arasında yıldız seçin."
+            );
+
+            return;
+
+        }
+
+
+        /*
+         * YORUM KONTROLÜ
+         */
+
+        if (!comment) {
+
+            alert(
+                "Lütfen yorumunuzu yazın."
+            );
+
+            document.getElementById(
+                "reviewComment"
+            ).focus();
+
+            return;
+
+        }
+
+
+        /*
+         * MEVCUT YORUMLAR
+         */
+
+        const reviews =
+            getReviews();
+
+
+        /*
+         * YENİ YORUM
+         */
+
+        const newReview = {
+
+            id:
+                Date.now(),
+
+            name:
+                name.substring(
+                    0,
+                    50
+                ),
+
+            rating:
+                selectedReviewRating,
+
+            comment:
+                comment.substring(
+                    0,
+                    500
+                ),
+
+            createdAt:
+                new Date().toISOString()
+
+        };
+
+
+        /*
+         * EN YENİ YORUM EN ÜSTTE
+         */
+
+        reviews.unshift(
+            newReview
+        );
+
+
+        /*
+         * KAYDET
+         */
+
+        saveReviews(
+            reviews
+        );
+
+
+        /*
+         * FORMU TEMİZLE
+         */
+
+        document.getElementById(
+            "reviewName"
+        ).value =
+            "";
+
+
+        document.getElementById(
+            "reviewComment"
+        ).value =
+            "";
+
+
+        selectedReviewRating =
+            0;
+
+
+        document
+            .querySelectorAll(
+                "#starSelector button"
+            )
+            .forEach(
+                function(star) {
+
+                    star.classList.remove(
+                        "selected"
+                    );
+
+                }
+            );
+
+
+        /*
+         * YORUMLARI YENİLE
+         */
+
+        renderReviews();
+
+
+        /*
+         * BİLDİRİM
+         */
+
+        alert(
+            "Yorumunuz kaydedildi. Teşekkür ederiz!"
+        );
+
+    }
+
+
+    /* =========================================
+       YORUMLARI GÖSTER
+    ========================================= */
+
+    function renderReviews() {
+
+        const reviews =
+            getReviews();
+
+
+        const list =
+            document.getElementById(
+                "reviewList"
+            );
+
+
+        /*
+         * YORUM SAYISINI GÜNCELLE
+         */
+
+        document.getElementById(
+            "reviewCount"
+        ).textContent =
+            reviews.length;
+
+
+        /*
+         * YORUM SAYISI
+         */
+
+        if (
+            reviews.length === 0
+        ) {
+
+            document.getElementById(
+                "reviewCountText"
+            ).textContent =
+                "Henüz yorum yok.";
+
+        } else {
+
+            document.getElementById(
+                "reviewCountText"
+            ).textContent =
+
+                reviews.length +
+                " yorum";
+
+        }
+
+
+        /*
+         * ORTALAMA PUAN
+         */
+
+        let average =
+            0;
+
+
+        if (
+            reviews.length > 0
+        ) {
+
+            const total =
+                reviews.reduce(
+                    function(
+                        sum,
+                        review
+                    ) {
+
+                        return (
+                            sum +
+                            Number(
+                                review.rating
+                            )
+                        );
+
+                    },
+                    0
+                );
+
+
+            average =
+                total /
+                reviews.length;
+
+        }
+
+
+        document.getElementById(
+            "reviewAverage"
+        ).textContent =
+            average.toFixed(1);
+
+
+        document.getElementById(
+            "reviewAverageStars"
+        ).textContent =
+
+            reviews.length > 0
+
+                ? getReviewStars(
+                    Math.round(
+                        average
+                    )
+                )
+
+                : "☆☆☆☆☆";
+
+
+        /*
+         * LİSTEYİ TEMİZLE
+         */
+
+        list.innerHTML = "";
+
+
+        /*
+         * YORUM YOKSA
+         */
+
+        if (
+            reviews.length === 0
+        ) {
+
+            list.innerHTML = `
+
+                <div class="no-reviews">
+
+                    Henüz müşteri yorumu bulunmuyor.
+
+                    <br><br>
+
+                    İlk yorumu siz yapın! ⭐
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        /*
+         * YORUMLARI OLUŞTUR
+         */
+
+        reviews.forEach(
+            function(review) {
+
+                const item =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                item.className =
+                    "review-item";
+
+
+                /*
+                 * ÜST KISIM
+                 */
+
+                const header =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                header.className =
+                    "review-item-header";
+
+
+                /*
+                 * İSİM
+                 */
+
+                const name =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                name.className =
+                    "reviewer-name";
+
+
+                name.textContent =
+                    review.name;
+
+
+                /*
+                 * YILDIZ
+                 */
+
+                const stars =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                stars.className =
+                    "review-item-stars";
+
+
+                stars.textContent =
+                    getReviewStars(
+                        Number(
+                            review.rating
+                        )
+                    );
+
+
+                /*
+                 * YORUM
+                 */
+
+                const comment =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                comment.className =
+                    "review-comment";
+
+
+                comment.textContent =
+                    review.comment;
+
+
+                /*
+                 * BİRLEŞTİR
+                 */
+
+                header.appendChild(
+                    name
+                );
+
+
+                header.appendChild(
+                    stars
+                );
+
+
+                item.appendChild(
+                    header
+                );
+
+
+                item.appendChild(
+                    comment
+                );
+
+
+                list.appendChild(
+                    item
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =========================================
+       SAYFA AÇILINCA
     ========================================= */
 
     loadOrder();
+
+
+    /*
+     * YORUM SAYISINI BAŞLANGIÇTA GÖSTER
+     */
+
+    renderReviews();
+
 
     /* =========================================
        PWA SERVICE WORKER
@@ -2299,4 +3729,3 @@
 </body>
 
 </html>
-```
