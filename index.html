@@ -411,7 +411,7 @@
         }
 
         /* =========================================
-           YORUM BUTONU
+           YORUM + BİLDİRİM BUTONLARI
            MEVCUT TASARIMI BOZMADAN
         ========================================= */
 
@@ -424,15 +424,26 @@
 
         .review-header h1 {
             margin: 0;
-            padding-right: 45px;
-            padding-left: 45px;
+            padding-right: 90px;
+            padding-left: 90px;
         }
 
-        .review-button {
+        .header-tools {
             position: absolute;
             right: 0;
             top: 50%;
-            transform: translateY(-50%);
+
+            transform:
+                translateY(-50%);
+
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .review-button,
+        .notification-button {
+            position: relative;
 
             width: 38px;
             height: 38px;
@@ -440,7 +451,6 @@
             border: none;
             border-radius: 9px;
 
-            background: #e63946;
             color: white;
 
             font-size: 19px;
@@ -450,16 +460,34 @@
             justify-content: center;
 
             cursor: pointer;
+
+            transition:
+                transform .15s ease,
+                opacity .15s ease;
         }
 
-        .review-button:active {
-            transform:
-                translateY(-50%)
-                scale(.88);
+        .review-button {
+            background: #e63946;
         }
 
-        .review-count {
+        .notification-button {
+            background: #222;
+        }
+
+        .review-button:hover,
+        .notification-button:hover {
+            opacity: .85;
+        }
+
+        .review-button:active,
+        .notification-button:active {
+            transform: scale(.88);
+        }
+
+        .review-count,
+        .notification-count {
             position: absolute;
+
             top: -7px;
             right: -7px;
 
@@ -470,7 +498,6 @@
 
             border-radius: 50%;
 
-            background: #222;
             color: white;
 
             font-size: 11px;
@@ -481,6 +508,14 @@
             justify-content: center;
 
             border: 2px solid white;
+        }
+
+        .review-count {
+            background: #222;
+        }
+
+        .notification-count {
+            background: #e63946;
         }
 
         /* =========================================
@@ -726,6 +761,214 @@
         }
 
         /* =========================================
+           BİLDİRİM SAYFASI
+        ========================================= */
+
+        #notificationPage {
+            min-height: 100vh;
+        }
+
+        .notification-page-header {
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 18px 55px;
+
+            margin-bottom: 18px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,.08);
+        }
+
+        .notification-page-header h2 {
+            margin: 0;
+
+            font-size: 21px;
+
+            text-align: center;
+        }
+
+        .close-notification-page {
+            position: absolute;
+
+            left: 15px;
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            width: 38px;
+            height: 38px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: #eee;
+
+            font-size: 27px;
+            line-height: 1;
+
+            cursor: pointer;
+        }
+
+        .close-notification-page:active {
+            transform:
+                translateY(-50%)
+                scale(.90);
+        }
+
+        /* =========================================
+           BİLDİRİM BİLGİ KARTI
+        ========================================= */
+
+        .notification-info {
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 18px;
+
+            margin-bottom: 18px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,.08);
+
+            text-align: center;
+
+            color: #777;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+        }
+
+        /* =========================================
+           BİLDİRİM KARTI
+        ========================================= */
+
+        .notification-item {
+            position: relative;
+
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 18px;
+
+            margin-bottom: 12px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,.08);
+
+            border-left: 4px solid #e63946;
+        }
+
+        .notification-item.read {
+            border-left-color: #ccc;
+        }
+
+        .notification-item.unread {
+            background: #fffafa;
+        }
+
+        .notification-item-header {
+            display: flex;
+
+            align-items: flex-start;
+
+            justify-content: space-between;
+
+            gap: 10px;
+
+            margin-bottom: 9px;
+        }
+
+        .notification-title {
+            font-size: 17px;
+
+            font-weight: bold;
+
+            line-height: 1.35;
+        }
+
+        .notification-new {
+            flex-shrink: 0;
+
+            padding: 4px 7px;
+
+            border-radius: 7px;
+
+            background: #e63946;
+
+            color: white;
+
+            font-size: 10px;
+
+            font-weight: bold;
+        }
+
+        .notification-message {
+            color: #444;
+
+            font-size: 15px;
+
+            line-height: 1.5;
+
+            white-space: pre-wrap;
+
+            word-break: break-word;
+        }
+
+        .notification-date {
+            margin-top: 12px;
+
+            color: #999;
+
+            font-size: 12px;
+        }
+
+        .no-notifications {
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 30px 20px;
+
+            text-align: center;
+
+            color: #777;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,.08);
+        }
+
+        /* =========================================
+           BİLDİRİM YÜKLENİYOR
+        ========================================= */
+
+        .notification-loading {
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 30px;
+
+            text-align: center;
+
+            color: #777;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,.08);
+        }
+
+        /* =========================================
            MOBİL
         ========================================= */
 
@@ -748,6 +991,23 @@
                 align-items: flex-start;
                 flex-direction: column;
                 gap: 5px;
+            }
+
+            .review-header h1 {
+                padding-right: 80px;
+                padding-left: 20px;
+            }
+
+            .header-tools {
+                gap: 4px;
+            }
+
+            .review-button,
+            .notification-button {
+                width: 35px;
+                height: 35px;
+                min-width: 35px;
+                font-size: 17px;
             }
 
         }
@@ -776,26 +1036,56 @@
                     🌯 Dürümcü
                 </h1>
 
-                <!-- YORUM BUTONU -->
+                <!-- =========================================
+                     YORUM + BİLDİRİM BUTONLARI
+                ========================================= -->
 
-                <button
-                    type="button"
-                    class="review-button"
-                    onclick="openReviewPage()"
-                    title="Müşteri Yorumları"
-                    aria-label="Müşteri Yorumları"
-                >
+                <div class="header-tools">
 
-                    💬
+                    <!-- BİLDİRİMLER -->
 
-                    <span
-                        id="reviewCount"
-                        class="review-count"
+                    <button
+                        type="button"
+                        class="notification-button"
+                        onclick="openNotificationPage()"
+                        title="Bildirimler"
+                        aria-label="Bildirimler"
                     >
-                        0
-                    </span>
 
-                </button>
+                        🔔
+
+                        <span
+                            id="notificationCount"
+                            class="notification-count"
+                        >
+                            0
+                        </span>
+
+                    </button>
+
+
+                    <!-- YORUMLAR -->
+
+                    <button
+                        type="button"
+                        class="review-button"
+                        onclick="openReviewPage()"
+                        title="Müşteri Yorumları"
+                        aria-label="Müşteri Yorumları"
+                    >
+
+                        💬
+
+                        <span
+                            id="reviewCount"
+                            class="review-count"
+                        >
+                            0
+                        </span>
+
+                    </button>
+
+                </div>
 
             </div>
 
@@ -1457,6 +1747,77 @@
 
     </div>
 
+
+    <!-- =========================================
+         BİLDİRİMLER SAYFASI
+    ========================================= -->
+
+    <div
+        id="notificationPage"
+        class="hidden"
+    >
+
+        <!-- SAYFA BAŞLIĞI -->
+
+        <div class="notification-page-header">
+
+            <h2>
+                🔔 Bildirimler
+            </h2>
+
+            <button
+                type="button"
+                class="close-notification-page"
+                onclick="closeNotificationPage()"
+                aria-label="Kapat"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <!-- =========================================
+             BİLDİRİM AÇIKLAMASI
+        ========================================= -->
+
+        <div class="notification-info">
+
+            📢 Buradaki kampanya ve duyurular
+            tüm müşterilerimize gösterilir.
+
+        </div>
+
+
+        <!-- =========================================
+             BİLDİRİM LİSTESİ
+        ========================================= -->
+
+        <div
+            id="notificationList"
+        >
+
+            <div class="notification-loading">
+                🔔 Bildirimler yükleniyor...
+            </div>
+
+        </div>
+
+
+        <!-- =========================================
+             GERİ DÖN
+        ========================================= -->
+
+        <button
+            type="button"
+            class="main-button back-button"
+            onclick="closeNotificationPage()"
+        >
+            ← Sipariş Sayfasına Dön
+        </button>
+
+    </div>
+
 </div>
 
 
@@ -1477,12 +1838,97 @@
     const STORAGE_KEY =
         "durumcu_order";
 
+
     /*
      * YORUMLAR İÇİN AYRI LOCAL STORAGE
      */
 
     const REVIEW_STORAGE_KEY =
         "durumcu_reviews";
+
+
+    /*
+     * OKUNAN BİLDİRİMLER
+     */
+
+    const NOTIFICATION_READ_STORAGE_KEY =
+        "durumcu_read_notifications";
+
+
+    /* =========================================
+       ORTAK BİLDİRİMLER
+       
+       BURADAN BİLDİRİM EKLEYEBİLİRSİN
+       
+       active:
+       true  = göster
+       false = gizle
+       
+       startDate / endDate:
+       Bildirimin gösterileceği tarih aralığı.
+       
+       Boş bırakılırsa tarih sınırı olmaz.
+    ========================================= */
+
+    const NOTIFICATIONS = [
+
+        {
+            id: 1,
+
+            title:
+                "Bugüne Özel %15 İndirim 🎁",
+
+            message:
+                "Bugün vereceğiniz tüm dürüm siparişlerinde %15 indirim fırsatı! Kampanyayı kaçırmayın.",
+
+            active: true,
+
+            startDate:
+                "2026-09-23",
+
+            endDate:
+                "2026-09-23"
+        },
+
+
+        {
+            id: 2,
+
+            title:
+                "Yeni Kampanya 🌯",
+
+            message:
+                "2 dürüm alana 1 ayran bizden! Kampanyamızdan yararlanmak için siparişinizi hemen oluşturabilirsiniz.",
+
+            active: true,
+
+            startDate:
+                "",
+
+            endDate:
+                ""
+        },
+
+
+        {
+            id: 3,
+
+            title:
+                "Duyuru 📢",
+
+            message:
+                "Siparişlerinizi daha hızlı hazırlayabilmemiz için adres bilgilerinizi eksiksiz girmenizi rica ederiz.",
+
+            active: true,
+
+            startDate:
+                "",
+
+            endDate:
+                ""
+        }
+
+    ];
 
 
     /* =========================================
@@ -2370,7 +2816,7 @@
 
 
         /*
-           SİPARİŞ SAYFASINI GİZLE
+           DİĞER SAYFALARI GİZLE
         */
 
         document.getElementById(
@@ -2379,24 +2825,20 @@
             "hidden"
         );
 
-
-        /*
-           ÖZET SAYFASI DA GİZLİ OLSUN
-        */
-
         document.getElementById(
             "summaryPage"
         ).classList.add(
             "hidden"
         );
 
-
-        /*
-           YORUM SAYFASI DA GİZLİ OLSUN
-        */
-
         document.getElementById(
             "reviewPage"
+        ).classList.add(
+            "hidden"
+        );
+
+        document.getElementById(
+            "notificationPage"
         ).classList.add(
             "hidden"
         );
@@ -2805,6 +3247,13 @@
 
 
         document.getElementById(
+            "notificationPage"
+        ).classList.add(
+            "hidden"
+        );
+
+
+        document.getElementById(
             "orderPage"
         ).classList.remove(
             "hidden"
@@ -3101,6 +3550,13 @@
 
         document.getElementById(
             "locationPage"
+        ).classList.add(
+            "hidden"
+        );
+
+
+        document.getElementById(
+            "notificationPage"
         ).classList.add(
             "hidden"
         );
@@ -3690,6 +4146,796 @@
 
 
     /* =========================================
+       BİLDİRİM SİSTEMİ
+    ========================================= */
+
+
+    /*
+     * BUGÜNÜ YYYY-MM-DD OLARAK AL
+     */
+
+    function getTodayDate() {
+
+        const now =
+            new Date();
+
+        const year =
+            now.getFullYear();
+
+        const month =
+            String(
+                now.getMonth() + 1
+            ).padStart(
+                2,
+                "0"
+            );
+
+        const day =
+            String(
+                now.getDate()
+            ).padStart(
+                2,
+                "0"
+            );
+
+        return (
+            year +
+            "-" +
+            month +
+            "-" +
+            day
+        );
+
+    }
+
+
+    /*
+     * BİLDİRİM AKTİF Mİ?
+     */
+
+    function isNotificationActive(
+        notification
+    ) {
+
+        if (
+            notification.active !== true
+        ) {
+
+            return false;
+
+        }
+
+
+        const today =
+            getTodayDate();
+
+
+        if (
+            notification.startDate &&
+            today <
+            notification.startDate
+        ) {
+
+            return false;
+
+        }
+
+
+        if (
+            notification.endDate &&
+            today >
+            notification.endDate
+        ) {
+
+            return false;
+
+        }
+
+
+        return true;
+
+    }
+
+
+    /*
+     * AKTİF BİLDİRİMLERİ AL
+     */
+
+    function getActiveNotifications() {
+
+        return NOTIFICATIONS.filter(
+            function(notification) {
+
+                return isNotificationActive(
+                    notification
+                );
+
+            }
+        );
+
+    }
+
+
+    /*
+     * OKUNAN BİLDİRİMLERİ AL
+     */
+
+    function getReadNotifications() {
+
+        const saved =
+            localStorage.getItem(
+                NOTIFICATION_READ_STORAGE_KEY
+            );
+
+
+        if (!saved) {
+
+            return [];
+
+        }
+
+
+        try {
+
+            const data =
+                JSON.parse(
+                    saved
+                );
+
+
+            if (
+                !Array.isArray(data)
+            ) {
+
+                return [];
+
+            }
+
+
+            return data;
+
+        } catch (error) {
+
+            console.error(
+                "Okunan bildirimler okunamadı:",
+                error
+            );
+
+
+            return [];
+
+        }
+
+    }
+
+
+    /*
+     * OKUNAN BİLDİRİMLERİ KAYDET
+     */
+
+    function saveReadNotifications(
+        ids
+    ) {
+
+        localStorage.setItem(
+            NOTIFICATION_READ_STORAGE_KEY,
+            JSON.stringify(
+                ids
+            )
+        );
+
+    }
+
+
+    /*
+     * BİLDİRİMİ OKUNDU OLARAK İŞARETLE
+     */
+
+    function markNotificationAsRead(
+        id
+    ) {
+
+        const readIds =
+            getReadNotifications();
+
+
+        if (
+            !readIds.includes(id)
+        ) {
+
+            readIds.push(id);
+
+            saveReadNotifications(
+                readIds
+            );
+
+        }
+
+
+        updateNotificationCount();
+
+    }
+
+
+    /*
+     * TÜM BİLDİRİMLERİ OKUNDU YAP
+     */
+
+    function markAllNotificationsAsRead() {
+
+        const notifications =
+            getActiveNotifications();
+
+
+        const ids =
+            notifications.map(
+                function(notification) {
+
+                    return notification.id;
+
+                }
+            );
+
+
+        saveReadNotifications(
+            ids
+        );
+
+
+        updateNotificationCount();
+
+
+        renderNotifications();
+
+    }
+
+
+    /*
+     * OKUNMAMIŞ BİLDİRİM SAYISI
+     */
+
+    function getUnreadNotificationCount() {
+
+        const notifications =
+            getActiveNotifications();
+
+
+        const readIds =
+            getReadNotifications();
+
+
+        return notifications.filter(
+            function(notification) {
+
+                return !readIds.includes(
+                    notification.id
+                );
+
+            }
+        ).length;
+
+    }
+
+
+    /*
+     * BİLDİRİM ROZETİNİ GÜNCELLE
+     */
+
+    function updateNotificationCount() {
+
+        const count =
+            getUnreadNotificationCount();
+
+
+        const badge =
+            document.getElementById(
+                "notificationCount"
+            );
+
+
+        if (!badge) {
+
+            return;
+
+        }
+
+
+        badge.textContent =
+            count > 99
+                ? "99+"
+                : count;
+
+
+        /*
+         * HİÇ BİLDİRİM YOKSA ROZETİ GİZLE
+         */
+
+        if (count === 0) {
+
+            badge.classList.add(
+                "hidden"
+            );
+
+        } else {
+
+            badge.classList.remove(
+                "hidden"
+            );
+
+        }
+
+    }
+
+
+    /*
+     * TARİHİ GÖSTER
+     */
+
+    function formatNotificationDate(
+        date
+    ) {
+
+        if (!date) {
+
+            return "";
+
+        }
+
+
+        const parts =
+            date.split("-");
+
+
+        if (
+            parts.length !== 3
+        ) {
+
+            return date;
+
+        }
+
+
+        return (
+            parts[2] +
+            "." +
+            parts[1] +
+            "." +
+            parts[0]
+        );
+
+    }
+
+
+    /* =========================================
+       BİLDİRİMLER SAYFASINI AÇ
+    ========================================= */
+
+    function openNotificationPage() {
+
+        /*
+         * BİLDİRİMLERİ GÖSTER
+         */
+
+        renderNotifications();
+
+
+        /*
+         * DİĞER SAYFALARI GİZLE
+         */
+
+        document.getElementById(
+            "orderPage"
+        ).classList.add(
+            "hidden"
+        );
+
+
+        document.getElementById(
+            "summaryPage"
+        ).classList.add(
+            "hidden"
+        );
+
+
+        document.getElementById(
+            "locationPage"
+        ).classList.add(
+            "hidden"
+        );
+
+
+        document.getElementById(
+            "reviewPage"
+        ).classList.add(
+            "hidden"
+        );
+
+
+        /*
+         * BİLDİRİMLERİ AÇ
+         */
+
+        document.getElementById(
+            "notificationPage"
+        ).classList.remove(
+            "hidden"
+        );
+
+
+        window.scrollTo(
+            0,
+            0
+        );
+
+    }
+
+
+    /* =========================================
+       BİLDİRİMLER SAYFASINI KAPAT
+    ========================================= */
+
+    function closeNotificationPage() {
+
+        document.getElementById(
+            "notificationPage"
+        ).classList.add(
+            "hidden"
+        );
+
+
+        document.getElementById(
+            "orderPage"
+        ).classList.remove(
+            "hidden"
+        );
+
+
+        window.scrollTo(
+            0,
+            0
+        );
+
+    }
+
+
+    /* =========================================
+       BİLDİRİMLERİ GÖSTER
+    ========================================= */
+
+    function renderNotifications() {
+
+        const list =
+            document.getElementById(
+                "notificationList"
+            );
+
+
+        if (!list) {
+
+            return;
+
+        }
+
+
+        const notifications =
+            getActiveNotifications();
+
+
+        const readIds =
+            getReadNotifications();
+
+
+        /*
+         * ROZETİ GÜNCELLE
+         */
+
+        updateNotificationCount();
+
+
+        /*
+         * LİSTEYİ TEMİZLE
+         */
+
+        list.innerHTML = "";
+
+
+        /*
+         * BİLDİRİM YOKSA
+         */
+
+        if (
+            notifications.length === 0
+        ) {
+
+            list.innerHTML = `
+
+                <div class="no-notifications">
+
+                    🔔 Şu anda aktif bir bildirim
+                    bulunmuyor.
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        /*
+         * TÜMÜNÜ OKU BUTONU
+         */
+
+        const unreadCount =
+            notifications.filter(
+                function(notification) {
+
+                    return !readIds.includes(
+                        notification.id
+                    );
+
+                }
+            ).length;
+
+
+        if (
+            unreadCount > 0
+        ) {
+
+            const readAllButton =
+                document.createElement(
+                    "button"
+                );
+
+
+            readAllButton.type =
+                "button";
+
+
+            readAllButton.className =
+                "main-button back-button";
+
+
+            readAllButton.style.marginTop =
+                "0";
+
+
+            readAllButton.style.marginBottom =
+                "18px";
+
+
+            readAllButton.textContent =
+                "✓ Tüm Bildirimleri Okundu İşaretle";
+
+
+            readAllButton.onclick =
+                function() {
+
+                    markAllNotificationsAsRead();
+
+                };
+
+
+            list.appendChild(
+                readAllButton
+            );
+
+        }
+
+
+        /*
+         * BİLDİRİMLERİ OLUŞTUR
+         */
+
+        notifications.forEach(
+            function(notification) {
+
+                const isRead =
+                    readIds.includes(
+                        notification.id
+                    );
+
+
+                const item =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                item.className =
+                    "notification-item " +
+                    (
+                        isRead
+                            ? "read"
+                            : "unread"
+                    );
+
+
+                /*
+                 * ÜST KISIM
+                 */
+
+                const header =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                header.className =
+                    "notification-item-header";
+
+
+                /*
+                 * BAŞLIK
+                 */
+
+                const title =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                title.className =
+                    "notification-title";
+
+
+                title.textContent =
+                    notification.title;
+
+
+                header.appendChild(
+                    title
+                );
+
+
+                /*
+                 * YENİ ROZETİ
+                 */
+
+                if (!isRead) {
+
+                    const newBadge =
+                        document.createElement(
+                            "span"
+                        );
+
+
+                    newBadge.className =
+                        "notification-new";
+
+
+                    newBadge.textContent =
+                        "YENİ";
+
+
+                    header.appendChild(
+                        newBadge
+                    );
+
+                }
+
+
+                /*
+                 * MESAJ
+                 */
+
+                const message =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                message.className =
+                    "notification-message";
+
+
+                message.textContent =
+                    notification.message;
+
+
+                /*
+                 * TARİH
+                 */
+
+                const date =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                date.className =
+                    "notification-date";
+
+
+                if (
+                    notification.startDate
+                ) {
+
+                    date.textContent =
+                        "📅 " +
+                        formatNotificationDate(
+                            notification.startDate
+                        );
+
+                }
+
+
+                /*
+                 * BİRLEŞTİR
+                 */
+
+                item.appendChild(
+                    header
+                );
+
+
+                item.appendChild(
+                    message
+                );
+
+
+                if (
+                    notification.startDate
+                ) {
+
+                    item.appendChild(
+                        date
+                    );
+
+                }
+
+
+                /*
+                 * TIKLANINCA OKUNDU
+                 */
+
+                item.addEventListener(
+                    "click",
+                    function() {
+
+                        markNotificationAsRead(
+                            notification.id
+                        );
+
+
+                        item.classList.remove(
+                            "unread"
+                        );
+
+
+                        item.classList.add(
+                            "read"
+                        );
+
+
+                        const newBadge =
+                            item.querySelector(
+                                ".notification-new"
+                            );
+
+
+                        if (newBadge) {
+
+                            newBadge.remove();
+
+                        }
+
+                    }
+                );
+
+
+                list.appendChild(
+                    item
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =========================================
        SAYFA AÇILINCA
     ========================================= */
 
@@ -3701,6 +4947,34 @@
      */
 
     renderReviews();
+
+
+    /*
+     * BİLDİRİM SAYISINI BAŞLANGIÇTA GÖSTER
+     */
+
+    updateNotificationCount();
+
+
+    /* =========================================
+       SAYFA TEKRAR GÖRÜNÜR OLDUĞUNDA
+       BİLDİRİM SAYISINI GÜNCELLE
+    ========================================= */
+
+    document.addEventListener(
+        "visibilitychange",
+        function() {
+
+            if (
+                !document.hidden
+            ) {
+
+                updateNotificationCount();
+
+            }
+
+        }
+    );
 
 
     /* =========================================
